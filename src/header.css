@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+
+.navbar {
+    font-family: 'Song Myung', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-color);
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+.navbar__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    color: var(--highlight-color);
+    transition: font-size 1s;
+    cursor: default;
+    font-weight: bold;
+}
+
+.navbar__title:hover {
+    font-size: 2.8em;
+}
+
+.navbar__menu {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding-left: 0;
+    margin-block-start:0;
+    margin-block-end:0;
+}
+
+.navbar__menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.navbar__menu-item:hover {
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+.navbar__menu-item:nth-child(2n-1):hover {
+    background-color: var(--highlight-color);
+    border-radius: 2% 50%;
+}
+
+.navbar__menu-item:nth-child(2n):hover {
+    background-color: var(--highlight-color);
+    border-radius: 50% 2%;
+}
+.navbar__menu-item:nth-child(1):hover {
+    transform: rotate(-360deg);
+}
+.navbar__menu-item:nth-child(2):hover {
+    transform: rotateY(360deg);
+}
+.navbar__menu-item:nth-child(3):hover {
+    transform: rotateX(360deg);
+}
+.navbar__menu-item:nth-child(4):hover {
+    transform: rotate3d(2, -1, -1, -1.0turn);
+}
+
+.navbar__menu-item a {
+    color: var(--highlight-color);
+    text-decoration: none;
+}
+
+.navbar__menu-item:hover a {
+    color: var(--main-color);
+}
+
+.navbar__misc {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-block-start:0;
+    margin-block-end:0;
+}
+
+.navbar__icon {
+    padding: 18px 12px;
+    color: var(--highlight-color);
+}
+.pattern {
+    z-index: -1;
+    width:100vw;
+    height: 100vh;
+    position:fixed;
+    background-color: var(--main-color);
+    background: linear-gradient(135deg, #172377 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #444cf7 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #172377 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #444cf7 25%, var(--main-color) 25%) 0px 0/ 20px 20px;
+}
+.flex__start,
+.flex__end,
+.flex__between,
+.flex__around,
+.flex__evenly,
+.flex__center,
+.flex__column {
+    display: flex;
+    align-items: center;
+}
+
+.flex__start { justify-content: flex-start; }
+.flex__end { justify-content: flex-end; }
+.flex__between { justify-content: space-between; }
+.flex__around { justify-content: space-around; }
+.flex__evenly { justify-content: space-evenly; }
+.flex__center { justify-content: center; }
+.flex__column { flex-direction: column; }
+
+.box--large {
+    margin: 12px;
+}
+.box--medium {
+    margin: 6px;
+}
+.box--small {
+    margin: 0;
+}
+
+.card {
+    color: whitesmoke;
+    background-color: var(--main-color);
+    background-size: 10vw;
+    font-size: 10vw;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar__menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__misc {
+        justify-content: center;
+        width: 100%;
+    }
+}
