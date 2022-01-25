@@ -10,16 +10,16 @@ function Header() {
                 </div>
                 <ul className="navbar__menu">
                     <li className="navbar__menu-item">
-                        <a href="#">_hello</a>
+                        <a href="#">_random film</a>
                     </li>
                     <li className="navbar__menu-item">
-                        <a href="#">_career</a>
+                        <a href="#">_masterpiece</a>
                     </li>
                     <li className="navbar__menu-item">
-                        <a href="#">_project</a>
+                        <a href="#">_by genre</a>
                     </li>
                     <li className="navbar__menu-item">
-                        <a href="#">_dream</a>
+                        <a href="#">_box office</a>
                     </li>
                 </ul>
                 <ul className="navbar__misc">
