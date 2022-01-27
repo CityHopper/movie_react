@@ -1,0 +1,47 @@
+.movie {
+    height: 30vh;
+
+}
+
+.movie__img {
+    height: 100%;
+}
+
+.movie__summary {
+    flex: 2;
+    width: 100%;
+    max-height: 100%;
+    padding: 30px
+}
+
+.movie__title {
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: black;
+}
+
+.movie__genre {
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 10px;
+    padding: 4px 8px;
+    margin: 2px 3px;
+    letter-spacing: -1px;
+}
+
+.movie__rating {
+    flex: 1;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+@media screen and (max-width: 1023px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+

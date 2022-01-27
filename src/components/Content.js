@@ -1,17 +1,19 @@
 import React from "react";
-import {Route, Routes, BrowserRouter} from "react-router-dom";
-import Home from "./../Home";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from "../routes/Home";
 import Movies from "./Movies";
+import Detail from "../routes/Detail";
 
 
 function Content() {
     return (
-        <BrowserRouter>
+        <Router>
             <Routes>
-                <Route path={"/"} element={<Home/>} exact/>
-                <Route path={"/movies"} element={<Movies/>} exact/>
+                <Route path={"/"} element={<Home/>} />
+                <Route path={"/movies"} element={<Movies/>} />
+                <Route path={"/movies/:id"} element={<Detail/>} />
             </Routes>
-        </BrowserRouter>
+        </Router>
     )
 }
 
