@@ -1,25 +1,26 @@
 import React from "react";
-import "../header.css"
+import {Link} from "react-router-dom";
+import "../header.scss"
 
 function Header() {
     return (
         <header>
             <nav className="navbar">
                 <div className="navbar__title">
-                    <a tabIndex={0}>MOVIES</a>
+                    <Link to={"/"} tabIndex={0}>MOVIES</Link>
                 </div>
                 <ul className="navbar__menu">
                     <li className="navbar__menu-item">
-                        <a href="#">_random film</a>
+                        <Link to={"/"}>_random film</Link>
                     </li>
                     <li className="navbar__menu-item">
-                        <a href="#">_masterpiece</a>
+                        <Link to={"/"}>_masterpiece</Link>
                     </li>
                     <li className="navbar__menu-item">
-                        <a href="#">_by genre</a>
+                        <Link to={"/"}>_by genre</Link>
                     </li>
                     <li className="navbar__menu-item">
-                        <a href="#">_box office</a>
+                        <Link to={"/"}>_box office</Link>
                     </li>
                 </ul>
                 <ul className="navbar__misc">

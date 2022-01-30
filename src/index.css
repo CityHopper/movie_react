@@ -8,14 +8,10 @@ body {
 }
 
 :root {
-    /*--main-color: #3494E6;*/
-    /*--sub-color: #EC6EAD;*/
-    /*--highlight-color: #e6c834;*/
     --main-color: #2657eb;
     --sub-color: #de6161;
-    --highlight-color: #e6c834;
+    --highlight-color: white;
 }
-
 
 .flex__start,
 .flex__end,
