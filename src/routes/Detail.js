@@ -22,22 +22,40 @@ function Detail() {
     }, [detail])
 
     return (
-        <>
+        <article className="detail">
             {loading
-                ? (<h1>Loading...</h1>)
+                ? (<h1 className="loading flex__center">Loading...</h1>)
                 : <>
-                    <div className="detail">
-                        <div className="detail__background"
-                             style={{backgroundImage: `url(${detail.background_image})`}}/>
-                        <h1 className="detail__title">
-                            {detail.title}
-                        </h1>
+                    <div className="detail__background"
+                         style={{backgroundImage: `url(${detail.background_image})`}}/>
+                    <div className="container--small">
+                        <div className="detail__content flex__between">
+                            <img className="detail__poster" alt={`poster`}
+                                 src={detail.medium_cover_image}/>
+                            <div className="detail__description">
+                                <h1 className="detail__title">
+                                    {detail.title}
+                                </h1>
+                                <div className="detail__item">
+                                    {detail.year} ・ {detail.runtime} mins
+                                </div>
+                                <div className={"detail__item"}>
+                                    Rating: <b>{detail.rating}</b>
+                                </div>
+                                <div className="detail__item">
+                                    {detail.genres.map(genre => (
+                                        <span className={"detail__genre"}>{genre}</span>))
+                                    }
+                                </div>
+                                <p>{detail.description_full}</p>
 
+                            </div>
+
+                        </div>
                     </div>
                 </>
             }
-
-        </>
+        </article>
     )
 }
 

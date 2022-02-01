@@ -1,3 +1,17 @@
+:root {
+  --main-color: #2657eb;
+  --sub-color: #de6161;
+  --highlight-color: white;
+  --gray-100: #eae9e8;
+  --gray-200: #b3b3b3;
+  --dark-bg-color: rgb(20, 20, 20);
+  --dark-font-color: rgb(229, 229, 299);
+}
+/*반응형 화면 크기*/
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,16 +19,13 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg-color);
+  color: var(--dark-font-color);
 }
-
-:root {
-  --main-color: #2657eb;
-  --sub-color: #de6161;
-  --highlight-color: white;
-  --border-color: #eae9e8;
-  --dark-bg-color: rgb(20, 20, 20);
+h1, h2, h3, h4, h5, h6, a, p {
+  letter-spacing: -1px;
+  text-decoration: none;
 }
-
 .flex__start,
 .flex__end,
 .flex__between,
@@ -54,11 +65,25 @@ body {
   flex-direction: column;
 }
 
+.loading {
+  height: 100vh;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.container--big {
+  margin: 0 20px;
+}
+.container--small {
+  margin: 0 60px;
+  box-sizing: border-box;
+}
+
 .cover {
   width: 100%;
   height: 350px;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: antiquewhite;
 }
 
 .cover:before {
@@ -68,5 +93,4 @@ body {
   left: 0;
   height: 30%;
   width: 100%;
-  z-index: -1;
 }

@@ -11,14 +11,13 @@ header {
     background: transparent; /* fallback for old browsers */
     text-decoration: none;
     position: absolute;
-    z-index: 10;
     height: 60px;
     width: 100%;
     padding: 0 3vw;
     box-sizing: border-box;
     transition: background-color 1s;
 
-    .navbar__title {
+    &__title {
       width: auto;
       font-weight: bold;
       text-decoration: none;
@@ -27,7 +26,7 @@ header {
       font-size: 2.5em;
     }
 
-    .navbar__menu {
+    &__menu {
       justify-content: space-evenly;
       list-style: none;
       padding-left: 2vw;
@@ -39,11 +38,6 @@ header {
         cursor: pointer;
         font-size: 14px;
 
-        &:hover {
-          transition-property: transform;
-          transition-duration: 1s;
-        }
-
         a {
           color: var(--border-color);
           text-decoration: none;
@@ -51,7 +45,8 @@ header {
         }
 
         &:hover a {
-          color: var(--main-color);
+          color: var(--gray-200);
+          transition: color 1s;
         }
 
       }
@@ -77,12 +72,16 @@ header {
       }
     }
   }
+
   .navbar-dark {
     background-color: var(--dark-bg-color);
   }
 
 }
 
+header, header * {
+  z-index: 10;
+}
 
 @media screen and (max-width: 768px) {
   .navbar {
