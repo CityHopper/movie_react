@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --main-color: #2657eb;
+  --sub-color: #de6161;
+  --highlight-color: white;
+  --border-color: #eae9e8;
+  --dark-bg-color: rgb(20, 20, 20);
+}
+
+.flex__start,
+.flex__end,
+.flex__between,
+.flex__around,
+.flex__evenly,
+.flex__center,
+.flex__column {
+  display: flex;
+  align-items: center;
+}
+
+.flex__start {
+  justify-content: flex-start;
+}
+
+.flex__end {
+  justify-content: flex-end;
+}
+
+.flex__between {
+  justify-content: space-between;
+}
+
+.flex__around {
+  justify-content: space-around;
+}
+
+.flex__evenly {
+  justify-content: space-evenly;
+}
+
+.flex__center {
+  justify-content: center;
+}
+
+.flex__column {
+  flex-direction: column;
+}
+
+.cover {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cover:before {
+  content: "";
+  background: linear-gradient(to bottom, black, transparent);
+  position: absolute;
+  left: 0;
+  height: 30%;
+  width: 100%;
+  z-index: -1;
+}

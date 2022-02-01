@@ -1,99 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
+header {
+  position: sticky;
+  top: 0;
 
-.navbar {
+  .navbar {
     font-family: 'Song Myung', serif;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: #3494E6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, var(--main-color), var(--sub-color)); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, var(--main-color), var(--sub-color)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: transparent; /* fallback for old browsers */
     text-decoration: none;
-    padding: 8px 12px;
-}
+    position: absolute;
+    z-index: 10;
+    height: 60px;
+    width: 100%;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    transition: background-color 1s;
 
-.navbar__title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    transition: font-size 1s;
-    cursor: default;
-    font-weight: bold;
-}
-
-.navbar__title:hover {
-    font-size: 2.8em;
-}
-
-.navbar__title a {
-    text-decoration: none;
-    color: var(--highlight-color);
-}
-
-.navbar__menu {
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-    padding-left: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-.navbar__menu-item {
-    padding: 8px 12px;
-    cursor: pointer;
-}
-
-.navbar__menu-item:hover {
-    transition-property: transform;
-    transition-duration: 1s;
-}
-
-.navbar__menu-item a {
-    color: var(--highlight-color);
-    text-decoration: none;
-}
-
-.navbar__menu-item:hover a {
-    color: var(--main-color);
-}
-
-.navbar__misc {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-.navbar__icon {
-    padding: 18px 12px;
-    color: var(--highlight-color);
-}
-
-
-
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    .navbar__title {
+      width: auto;
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--main-color);
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5em;
     }
 
     .navbar__menu {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
+      justify-content: space-evenly;
+      list-style: none;
+      padding-left: 2vw;
+      margin-block-start: 0;
+      margin-block-end: 0;
 
-    .navbar__menu-item {
-        width: 100%;
-        text-align: center;
+      .navbar__item {
+        padding: 8px 12px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:hover {
+          transition-property: transform;
+          transition-duration: 1s;
+        }
+
+        a {
+          color: var(--border-color);
+          text-decoration: none;
+          font-weight: normal;
+        }
+
+        &:hover a {
+          color: var(--main-color);
+        }
+
+      }
     }
 
     .navbar__misc {
-        justify-content: center;
-        width: 100%;
+      display: flex;
+      list-style: none;
+      padding-left: 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin: 0 0 0 auto;
+
+      .navbar__search {
+        margin: 0 0 0 auto;
+      }
+
+      .navbar__search,
+      .navbar__icon {
+        padding: 8px 12px;
+        color: var(--highlight-color);
+        cursor: pointer;
+      }
     }
+  }
+  .navbar-dark {
+    background-color: var(--dark-bg-color);
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar__misc {
+    justify-content: center;
+    width: 100%;
+  }
 }

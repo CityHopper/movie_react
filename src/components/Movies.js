@@ -20,12 +20,13 @@ function Movies() {
 
     return (
         <>
+            <div className="cover"/>
             {loading
                 ? (<h1>Loading...</h1>)
                 :
-                <>
+                <section className="movie-container">
                     {movies.map(movie => (
-                        <section key={movie.id} className="movie flex__start">
+                        <div key={movie.id} className="movie flex__start">
                             <img alt={`${movie.title} poster`} src={movie.medium_cover_image}
                                  className="movie__img"/>
                             <div className="movie__summary">
@@ -44,9 +45,9 @@ function Movies() {
                                 {movie.rating}
                             </div>
 
-                        </section>
+                        </div>
                     ))}
-                </>
+                </section>
             }
         </>
 
