@@ -1,8 +1,10 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-import "../header.scss"
+import "../_header.scss"
 
 function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const mobileMenuHandler = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     const [navbarDark, setNavbarDark] = useState(false);
 
     const listenScrollEvent = event => {
@@ -25,24 +27,32 @@ function Header() {
                 : "navbar flex__start"}>
                 <Link className="navbar__title"
                       to={"/"} tabIndex={0}>ReactMovie</Link>
-                <ul className="navbar__menu flex__between">
+                <ul className={isMobileMenuOpen
+                    ? "navbar__menu active flex__between"
+                    : "navbar__menu flex__between"}>
                     <li className="navbar__item">
-                        <Link to={"/"}>_random film</Link>
+                        <Link to={"/movies"}>Browse</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/"}>_masterpiece</Link>
+                        <Link to={"/"}>Menu2</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/"}>_by genre</Link>
+                        <Link to={"/"}>Menu3</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/"}>_box office</Link>
+                        <Link to={"/"}>Menu4</Link>
                     </li>
                 </ul>
-                <ul className="navbar__misc">
+                <ul className={isMobileMenuOpen
+                    ? "navbar__misc active"
+                    : "navbar__misc"}>
                     <li className="navbar__search">dd</li>
                     <li className="navbar__icon">ss</li>
                 </ul>
+                <button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}
+                        onClick={mobileMenuHandler}>
+                    버튼
+                </button>
             </nav>
 
         </header>

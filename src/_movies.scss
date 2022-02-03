@@ -1,0 +1,133 @@
+@import "_index";
+@import "_responsive";
+
+@include desktop {
+  .movies {
+    flex-wrap: wrap;
+    margin: 0 auto 200px auto;
+    width: 1100px;
+
+    .movie {
+      height: 30vh;
+      padding: 10px 0;
+
+
+      &__img {
+        height: 100%;
+        border-radius: 5px;
+      }
+
+      &__summary {
+        flex: 1 1;
+        width: 100%;
+        max-height: 100%;
+        padding: 30px;
+      }
+
+      &__title {
+        color: var(--dark-font-color);
+      }
+
+      &__genre {
+        background-color: var(--main-color);
+        color: white;
+        border-radius: 10px;
+        padding: 4px 8px;
+        margin: 2px 3px;
+      }
+
+      &__rating {
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+
+  }
+}
+
+@include mobile {
+  .movies {
+  }
+}
+
+
+
+.detail {
+  flex-wrap: wrap;
+  margin: 0 auto 200px auto;
+  width: 1100px;
+
+  //width: 100vw;
+  //min-height: 100%;
+
+  &__background {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &:before {
+      content: "";
+      background: linear-gradient(to bottom, black, transparent);
+      //background: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.76));
+      position: absolute;
+      left: 0;
+      height: inherit;
+      width: inherit;
+    }
+  }
+
+  &__content {
+
+    .detail__poster {
+      position: absolute;
+      top: 300px;
+      width: 230px;
+      height: 345px;
+      object-fit: cover;
+      border: 2px solid var(--gray-100);
+      border-radius: 5px;
+      box-shadow: rgb(0 0 0 / 30%) 0 0 2px;
+    }
+
+    .detail__description {
+      width: 100%;
+      height: max-content;
+      margin-left: 270px;
+
+      //&:before {
+      //  content: "";
+      //  left: 0;
+      //  width: 250px;
+      //  height: 250px;
+      //  float: left;
+      //}
+
+      .detail__title {
+        color: var(--dark-font-color);
+      }
+
+      .detail__item {
+        margin-bottom: 12px;
+      }
+
+      .detail__genre {
+        background-color: var(--gray-200);
+        border-radius: 10px;
+        padding: 1px 8px;
+        margin: 2px 3px;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 1023px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+

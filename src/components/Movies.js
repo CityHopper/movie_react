@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {Link} from "react-router-dom";
-import "../movies.scss"
+import "../_movies.scss"
 
 function Movies() {
     const [loading, setLoading] = useState(true);
@@ -24,18 +24,17 @@ function Movies() {
                 ? (<h1 className="loading flex__center">Loading...</h1>)
                 :
                 <>
-                    <div className="cover"/>
-                    <section className="container--big">
+                    <section className="movies">
+                        <div className="cover"/>
                         {movies.map(movie => (
-                            <div key={movie.id} className="movie flex__start">
+                            <Link to={`/movies/${movie.id}`} key={movie.id}
+                                  className="movie flex__between">
                                 <img alt={`${movie.title} poster`} src={movie.medium_cover_image}
                                      className="movie__img"/>
                                 <div className="movie__summary">
-                                    <Link to={`/movies/${movie.id}`}>
-                                        <h1 className="movie__title">
-                                            {movie.title} ({movie.year})
-                                        </h1>
-                                    </Link>
+                                    <h1 className="movie__title">
+                                        {movie.title} ({movie.year})
+                                    </h1>
                                     {movie.genres.map((genre, index) => (
                                         <span key={index} className="movie__genre">
                                         {genre}
@@ -46,7 +45,7 @@ function Movies() {
                                     {movie.rating}
                                 </div>
 
-                            </div>
+                            </Link>
                         ))}
                     </section>
                 </>

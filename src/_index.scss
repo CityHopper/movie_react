@@ -7,10 +7,6 @@
   --dark-bg-color: rgb(20, 20, 20);
   --dark-font-color: rgb(229, 229, 299);
 }
-/*반응형 화면 크기*/
-$mobile: 767px;
-$tablet: 1023px;
-$desktop: 1024px;
 
 body {
   margin: 0;
@@ -22,7 +18,7 @@ body {
   background-color: var(--dark-bg-color);
   color: var(--dark-font-color);
 }
-h1, h2, h3, h4, h5, h6, a, p {
+h1, h2, h3, h4, h5, h6, a {
   letter-spacing: -1px;
   text-decoration: none;
 }

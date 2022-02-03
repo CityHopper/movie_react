@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import "./../movies.scss"
+import "../_movies.scss"
 
 function Detail() {
     const {id} = useParams();
@@ -43,8 +43,9 @@ function Detail() {
                                     Rating: <b>{detail.rating}</b>
                                 </div>
                                 <div className="detail__item">
-                                    {detail.genres.map(genre => (
-                                        <span className={"detail__genre"}>{genre}</span>))
+                                    {detail.genres.map((genre, index) => (
+                                        <span key={index} className={"detail__genre"}>
+                                            {genre}</span>))
                                     }
                                 </div>
                                 <p>{detail.description_full}</p>

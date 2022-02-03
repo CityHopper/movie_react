@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+@import "_responsive.scss";
+
+header, header * {
+  z-index: 10;
+}
 
 header {
   position: sticky;
@@ -21,7 +26,7 @@ header {
       width: auto;
       font-weight: bold;
       text-decoration: none;
-      color: var(--main-color);
+      color: var(--gray-100);
       font-family: 'Brush Script MT', cursive;
       font-size: 2.5em;
     }
@@ -39,7 +44,7 @@ header {
         font-size: 14px;
 
         a {
-          color: var(--border-color);
+          color: var(--gray-100);
           text-decoration: none;
           font-weight: normal;
         }
@@ -52,7 +57,7 @@ header {
       }
     }
 
-    .navbar__misc {
+    &__misc {
       display: flex;
       list-style: none;
       padding-left: 0;
@@ -71,37 +76,69 @@ header {
         cursor: pointer;
       }
     }
+
+    &__toggle {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+
+    }
   }
 
   .navbar-dark {
     background-color: var(--dark-bg-color);
-  }
 
+    .navbar__title {
+      color: var(--main-color);
+    }
+  }
 }
 
-header, header * {
-  z-index: 10;
-}
+@include mobile {
+  header {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      height: max-content;
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+      &__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-left: 0;
+
+        &.active {
+          display: flex;
+        }
+
+        .navbar__item {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      &__misc {
+        display: none;
+        justify-content: center;
+        width: 100%;
+
+        &.active {
+          display: flex;
+        }
+
+        .navbar__search {
+          margin: 0;
+        }
+      }
+
+      &__toggle {
+        display: flex;
+
+      }
+
+    }
   }
 
-  .navbar__menu {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .navbar__item {
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar__misc {
-    justify-content: center;
-    width: 100%;
-  }
 }
