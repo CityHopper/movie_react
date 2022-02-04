@@ -24,7 +24,7 @@ function Movies() {
                 ? (<h1 className="loading flex__center">Loading...</h1>)
                 :
                 <>
-                    <section className="movies">
+                    <section className="container">
                         <div className="cover"/>
                         {movies.map(movie => (
                             <Link to={`/movies/${movie.id}`} key={movie.id}
@@ -35,11 +35,13 @@ function Movies() {
                                     <h1 className="movie__title">
                                         {movie.title} ({movie.year})
                                     </h1>
-                                    {movie.genres.map((genre, index) => (
-                                        <span key={index} className="movie__genre">
+                                    <div className="movie__genres flex__start flex__wrap">
+                                        {movie.genres.map((genre, index) => (
+                                            <span key={index} className="movie__genres__genre">
                                         {genre}
                                     </span>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
                                 <div className="movie__rating flex__center">
                                     {movie.rating}

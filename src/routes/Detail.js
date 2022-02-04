@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import "../_movies.scss"
+import "../_detail.scss"
 
 function Detail() {
     const {id} = useParams();
@@ -28,30 +28,26 @@ function Detail() {
                 : <>
                     <div className="detail__background"
                          style={{backgroundImage: `url(${detail.background_image})`}}/>
-                    <div className="container--small">
-                        <div className="detail__content flex__between">
-                            <img className="detail__poster" alt={`poster`}
-                                 src={detail.medium_cover_image}/>
-                            <div className="detail__description">
-                                <h1 className="detail__title">
-                                    {detail.title}
-                                </h1>
-                                <div className="detail__item">
-                                    {detail.year} ・ {detail.runtime} mins
-                                </div>
-                                <div className={"detail__item"}>
-                                    Rating: <b>{detail.rating}</b>
-                                </div>
-                                <div className="detail__item">
-                                    {detail.genres.map((genre, index) => (
-                                        <span key={index} className={"detail__genre"}>
-                                            {genre}</span>))
-                                    }
-                                </div>
-                                <p>{detail.description_full}</p>
-
+                    <div className="detail__content flex__between">
+                        <img className="detail__poster" alt={`poster`}
+                             src={detail.medium_cover_image}/>
+                        <div className="detail__description">
+                            <h1 className="detail__title">
+                                {detail.title}
+                            </h1>
+                            <div className="detail__item">
+                                {detail.year} ・ {detail.runtime} mins
                             </div>
-
+                            <div className={"detail__item"}>
+                                Rating: <b>{detail.rating}</b>
+                            </div>
+                            <div className="detail__item">
+                                {detail.genres.map((genre, index) => (
+                                    <span key={index} className={"detail__genre"}>
+                                            {genre}</span>))
+                                }
+                            </div>
+                            <p>{detail.description_full}</p>
                         </div>
                     </div>
                 </>
