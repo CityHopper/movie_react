@@ -1,0 +1,15 @@
+@import "_responsive";
+@import "_index";
+
+.suggestions {
+  text-decoration: none;
+  width: 180px;
+
+  &__poster {
+    border-radius: 5px;
+    width: 100%;
+  }
+  &__title {
+    color: var(--dark-font-color);
+  }
+}

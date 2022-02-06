@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "../_header.scss"
 
 function Header() {
@@ -20,6 +20,9 @@ function Header() {
         return () => window.removeEventListener("scroll", listenScrollEvent);
     }, []);
 
+    const navigate = useNavigate();
+    // const history = useHistory();
+
     return (
         <header>
             <nav role="navigation" className={navbarDark
@@ -27,7 +30,8 @@ function Header() {
                 : "navbar flex__start"}>
                 <Link className="navbar__title"
                       to={"/"} tabIndex={0}>ReactMovie</Link>
-                <ul className={isMobileMenuOpen
+                <ul onClick={() => setIsMobileMenuOpen(false)}
+                    className={isMobileMenuOpen
                     ? "navbar__menu active flex__between"
                     : "navbar__menu flex__between"}>
                     <li className="navbar__item">
@@ -39,11 +43,9 @@ function Header() {
                     <li className="navbar__item">
                         <Link to={"/"}>Menu3</Link>
                     </li>
-                    <li className="navbar__item">
-                        <Link to={"/"}>Menu4</Link>
-                    </li>
                 </ul>
-                <ul className={isMobileMenuOpen
+                <ul onClick={() => setIsMobileMenuOpen(false)}
+                    className={isMobileMenuOpen
                     ? "navbar__misc active"
                     : "navbar__misc"}>
                     <li className="navbar__search">dd</li>
@@ -51,9 +53,11 @@ function Header() {
                 </ul>
                 <button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}
                         onClick={mobileMenuHandler}>
-                    버튼
+                    메뉴
                 </button>
             </nav>
+            <button className="button--go-back"
+                onClick={() => navigate(-1)}>뒤로</button>
 
         </header>
     )

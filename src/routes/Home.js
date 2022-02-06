@@ -3,7 +3,7 @@ import React from "react";
 function Home() {
     return (
         <>
-            <h1>Home!!!</h1>
+            <h1 className={"flex__center"}>Home!!!</h1>
         </>
     )
 }

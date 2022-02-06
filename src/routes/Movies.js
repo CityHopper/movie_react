@@ -30,12 +30,12 @@ function Movies() {
                             <Link to={`/movies/${movie.id}`} key={movie.id}
                                   className="movie flex__between">
                                 <img alt={`${movie.title} poster`} src={movie.medium_cover_image}
-                                     className="movie__img"/>
+                                     className="movie__poster"/>
                                 <div className="movie__summary">
                                     <h1 className="movie__title">
                                         {movie.title} ({movie.year})
                                     </h1>
-                                    <div className="movie__genres flex__start flex__wrap">
+                                    <div className="movie__genres flex__wrap">
                                         {movie.genres.map((genre, index) => (
                                             <span key={index} className="movie__genres__genre">
                                         {genre}

@@ -1,9 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "../routes/Home";
-import Movies from "./Movies";
+import Header from "./Header";
+import Movies from "../routes/Movies";
 import Detail from "../routes/Detail";
-import Header from "./../components/Header";
 
 
 function Content() {

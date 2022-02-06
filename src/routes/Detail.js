@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import Suggestions from "../components/Suggestions";
 import "../_detail.scss"
 
 function Detail() {
@@ -21,6 +22,7 @@ function Detail() {
         console.log(detail)
     }, [detail])
 
+
     return (
         <article className="detail">
             {loading
@@ -28,10 +30,10 @@ function Detail() {
                 : <>
                     <div className="detail__background"
                          style={{backgroundImage: `url(${detail.background_image})`}}/>
-                    <div className="detail__content flex__between">
+                    <div className="detail__content">
                         <img className="detail__poster" alt={`poster`}
                              src={detail.medium_cover_image}/>
-                        <div className="detail__description">
+                        <div className="detail__summary">
                             <h1 className="detail__title">
                                 {detail.title}
                             </h1>
@@ -41,15 +43,25 @@ function Detail() {
                             <div className={"detail__item"}>
                                 Rating: <b>{detail.rating}</b>
                             </div>
-                            <div className="detail__item">
+                            <div className="detail__item flex__start flex__wrap">
                                 {detail.genres.map((genre, index) => (
                                     <span key={index} className={"detail__genre"}>
                                             {genre}</span>))
                                 }
                             </div>
-                            <p>{detail.description_full}</p>
                         </div>
+                        <p className="detail__plot">{detail.description_full}</p>
                     </div>
+                    <div className={"detail__misc"}>
+                        <div className="detail__misc__download">
+
+                        </div>
+                        <div className={"detail__misc__suggestions"}>
+                            <Suggestions id={id}/>
+                        </div>
+
+                    </div>
+
                 </>
             }
         </article>

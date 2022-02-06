@@ -13,7 +13,6 @@
     &:before {
       content: "";
       background: linear-gradient(to bottom, black, transparent);
-      //background: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.76));
       position: absolute;
       left: 0;
       height: inherit;
@@ -23,23 +22,25 @@
 
   &__content {
     margin: 0 60px;
-    box-sizing: border-box;
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+    "poster summary"
+    "poster plot";
 
     .detail__poster {
-      position: absolute;
-      top: 300px;
-      width: 230px;
-      height: 345px;
+      grid-area: poster;
+      position: relative;
+      top: -50px;
       object-fit: cover;
       border: 2px solid var(--gray-100);
       border-radius: 5px;
       box-shadow: rgb(0 0 0 / 30%) 0 0 2px;
     }
 
-    .detail__description {
-      width: 100%;
-      height: max-content;
-      margin-left: 270px;
+    .detail__summary {
+      grid-area: summary;
 
       .detail__title {
         color: var(--dark-font-color);
@@ -57,6 +58,86 @@
       }
     }
 
+    .detail__plot {
+      grid-area: plot;
+    }
+
+  }
+  &__misc {
+    margin: 0 80px;
+    &__download {
+
+    }
+    &__suggestions {
+
+    }
   }
 }
 
+@include media(tablet, mobile) {
+  .detail {
+    &__content {
+      position: relative;
+      top: -230px;
+      margin: 0 10px;
+      column-gap: 20px;
+      grid-template-areas:
+    "poster summary"
+    "plot plot";
+
+      .detail__poster {
+        position: relative;
+        width: unset;
+        top: 0;
+      }
+
+      .detail__plot {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .detail {
+    &__content {
+      row-gap: 20px;
+
+      .detail__poster {
+        height: 200px;
+      }
+
+      .detail__summary {
+        width: calc(100vw - 190px);
+      }
+    }
+  }
+}
+
+@include mobile {
+  .detail {
+
+    &__content {
+      row-gap: 54px;
+
+      .detail__poster {
+        height: 140px;
+      }
+
+      .detail__summary {
+        width: calc(100vw - 130px);
+        margin: 0;
+
+        .detail__title {
+          margin-top: 0;
+        }
+
+        .detail__genre {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+}
