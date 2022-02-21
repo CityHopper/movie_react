@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import Suggestions from "../components/Suggestions";
+import Suggestion from "../components/Suggestion";
 import "../_detail.scss"
 
 function Detail() {
@@ -9,7 +9,7 @@ function Detail() {
     const [detail, setDetail] = useState();
     const getDetail = async () => {
         const json = await (
-            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true`)
         ).json()
         setDetail(json.data.movie);
         setLoading(false);
@@ -57,7 +57,7 @@ function Detail() {
 
                         </div>
                         <div className={"detail__misc__suggestions"}>
-                            <Suggestions id={id}/>
+                            <Suggestion id={id}/>
                         </div>
 
                     </div>

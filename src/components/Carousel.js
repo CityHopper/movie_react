@@ -1,13 +1,12 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import "./../_suggestions.scss";
+import { Navigation } from "swiper";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+// https://swiperjs.com/demos
 
-function Suggestions(props) {
+function Carousel(props) {
     const [loading, setLoading] = useState(true);
     const [suggestions, setSuggestions] = useState();
 
@@ -23,30 +22,25 @@ function Suggestions(props) {
         getSuggestion();
     }, [])
 
-    useEffect(() => {
-        console.log(suggestions)
-    }, [suggestions])
-
     return (
         <>
             {loading
                 ? <p>Loading...</p>
                 : <Swiper
-                    // install Swiper modules
+                    modules={[Navigation]}
                     spaceBetween={10}
                     slidesPerView={3}
-                    navigation
+                    navigation={true}
+                    className="carousel"
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
-                    {suggestions.data.movies.map((movie, index) => (
-                        <SwiperSlide key={index}>
-                            <Link to={`/movies/${movie.id}`} key={movie.id}
-                                  className="suggestions"
-                                  onClick={() => window.location.reload()}>
-                                <img className="suggestion__poster" alt={`poster`}
+                    {suggestions.data.movies.map((movie) => (
+                        <SwiperSlide key={movie.id} className="carousel__item">
+                            <Link to={`/movies/${movie.id}`}>
+                                <img className="" alt={`poster`}
                                      src={movie.medium_cover_image}/>
-                                <h4 className="suggestions__title">{movie.title_long}</h4>
+                                <h4 className="">{movie.title_long}</h4>
                             </Link>
                         </SwiperSlide>
                     ))
@@ -57,4 +51,4 @@ function Suggestions(props) {
     )
 }
 
-export default Suggestions;
+export default Carousel;

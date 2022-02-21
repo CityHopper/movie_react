@@ -1,15 +1,25 @@
 @import "_responsive";
 @import "_index";
 
-.suggestions {
+.suggestion {
   text-decoration: none;
-  width: 180px;
+  display: block;
 
   &__poster {
     border-radius: 5px;
-    width: 100%;
+    width: 20vw;
   }
+
   &__title {
     color: var(--dark-font-color);
   }
 }
+
+//
+//.carousel {
+//  width: 80vw;
+//  &__item {
+//    width: 200px
+//
+//  }
+//}
