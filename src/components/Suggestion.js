@@ -28,7 +28,7 @@ function Suggestion(props) {
                 ? <p className="flex__center">Loading...</p>
                 : <>
                     <h2>비슷한 영화들</h2>
-                    <div className="flex__center">
+                    <div className="suggestion-container">
                     {suggestions.data.movies.map((movie, index) => (
                         <Link key={index} to={`/movies/${movie.id}`}
                             // onClick={() => window.location.reload()}

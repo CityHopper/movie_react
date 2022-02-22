@@ -1,13 +1,22 @@
 @import "_responsive";
 @import "_index";
 
+.suggestion-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .suggestion {
   text-decoration: none;
   display: block;
+  width: 20vw;
+  margin: 4px 8px;
 
   &__poster {
     border-radius: 5px;
-    width: 20vw;
+    width: 100%;
+    min-width: 80px;
   }
 
   &__title {
@@ -15,11 +24,8 @@
   }
 }
 
-//
-//.carousel {
-//  width: 80vw;
-//  &__item {
-//    width: 200px
-//
-//  }
-//}
+@include media(tablet, mobile) {
+  .suggestion {
+    &__title {margin: 4px 0}
+  }
+}
