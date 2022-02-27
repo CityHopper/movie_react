@@ -1,0 +1,39 @@
+@import "_responsive";
+@import "_index";
+
+.download-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(33%, auto));
+  grid-template-rows: repeat(auto-fill, minmax(50px,auto));
+  grid-auto-flow: dense;
+}
+.download {
+  width: auto;
+  margin: 0 10px 10px 0;
+  padding: 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--dark-font-color);
+
+  &__info {
+    margin: 0 0 10px 0;
+    word-break: normal;
+
+    b {
+      margin-left: 16px;
+      text-align: end;
+    }
+
+  }
+}
+
+@include media(tablet) {
+  .download-container{
+    grid-template-columns: repeat(auto-fill, minmax(50%, auto));
+  }
+}
+@include media(mobile) {
+  .download-container{
+    grid-template-columns: repeat(auto-fill, minmax(100%, auto));
+  }
+}
