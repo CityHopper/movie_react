@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import Suggestion from "../components/Suggestion";
+import Cast from "../components/Cast"
 import "../_detail.scss"
 
 function Detail() {
@@ -53,6 +54,9 @@ function Detail() {
                         <p className="detail__plot">{detail.description_full}</p>
                     </div>
                     <div className={"detail__misc"}>
+                        <div className={"detail__misc__cast"}>
+                            <Cast cast={detail.cast}/>
+                        </div>
                         <div className="detail__misc__download">
 
                         </div>

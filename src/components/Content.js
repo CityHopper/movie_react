@@ -11,9 +11,9 @@ function Content() {
         <Router>
             <Header />
             <Routes>
-                <Route path={"/"} element={<Home/>} />
-                <Route path={"/movies"} element={<Movies/>} />
-                <Route path={"/movies/:id"} element={<Detail/>} />
+                <Route exact path={"/movies"} element={<Movies/>} />
+                <Route exact path={"/movies/:id"} element={<Detail/>} />
+                <Route exact path={"/"} element={<Home/>} />
             </Routes>
         </Router>
     )

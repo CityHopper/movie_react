@@ -1,0 +1,46 @@
+@import "_responsive";
+@import "_index";
+
+.cast-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cast {
+  display: grid;
+  grid-gap: 2px 2px;
+  grid-template-areas:
+  "photo name"
+  "photo role";
+  width: 20vw;
+  margin: 4px 8px;
+  text-decoration: none;
+
+  &__photo {
+    grid-area: photo;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+  }
+  &__name, &__role {
+    margin: 2px auto 2px 6px;
+  }
+  &__name {
+    grid-area: name;
+    //color: var(--dark-font-color);
+    //margin: 6px;
+    white-space: nowrap;
+  }
+  &__role {
+    grid-area: role;
+    white-space: nowrap;
+  }
+}
+
+@include media(tablet, mobile) {
+  .cast-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cast {
+  }
+}

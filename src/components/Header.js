@@ -38,7 +38,7 @@ function Header() {
                         <Link to={"/movies"}>Browse</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/"}>Menu2</Link>
+                        <Link to={"/"}>Trending</Link>
                     </li>
                     <li className="navbar__item">
                         <Link to={"/"}>Menu3</Link>

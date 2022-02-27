@@ -15,7 +15,7 @@ function Suggestion(props) {
     }
 
     useEffect(() => {
-        getSuggestion();
+        getSuggestion().then(r => r);
     }, [])
 
     useEffect(() => {
