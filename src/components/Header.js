@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import "../_header.scss"
+// import searchIcon from "../magnifying-glass-solid.svg"
 
 function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,8 +33,8 @@ function Header() {
                       to={"/"} tabIndex={0}>ReactMovie</Link>
                 <ul onClick={() => setIsMobileMenuOpen(false)}
                     className={isMobileMenuOpen
-                    ? "navbar__menu active flex__between"
-                    : "navbar__menu flex__between"}>
+                        ? "navbar__menu active flex__between"
+                        : "navbar__menu flex__between"}>
                     <li className="navbar__item">
                         <Link to={"/movies"}>Browse</Link>
                     </li>
@@ -46,9 +47,19 @@ function Header() {
                 </ul>
                 <ul onClick={() => setIsMobileMenuOpen(false)}
                     className={isMobileMenuOpen
-                    ? "navbar__misc active"
-                    : "navbar__misc"}>
-                    <li className="navbar__search">dd</li>
+                        ? "navbar__misc active"
+                        : "navbar__misc"}>
+                    <li className="navbar__search">
+                        <img alt={"검색"}
+                             src={"../magnifying-glass-solid.svg"}
+                             // src={searchIcon}
+                             className={"navbar__search__icon"}/>
+                        <input type={"text"}
+                               className={"navbar__search__input"}
+                               placeholder={"영화를 검색해보세요!"}
+
+                        />
+                    </li>
                     <li className="navbar__icon">ss</li>
                 </ul>
                 <button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}
@@ -57,7 +68,8 @@ function Header() {
                 </button>
             </nav>
             <button className="button--go-back"
-                onClick={() => navigate(-1)}>뒤로</button>
+                    onClick={() => navigate(-1)}>뒤로
+            </button>
 
         </header>
     )

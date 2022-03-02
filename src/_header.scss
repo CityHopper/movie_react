@@ -66,10 +66,30 @@ header {
       margin: 0 0 0 auto;
 
       .navbar__search {
+        display: flex;
         margin: 0 0 0 auto;
+        padding: 2px 12px;
+        height: 100%;
+
+        &__icon, &__input {
+          background-color: var(--dark-bg-color);
+          height: 22px;
+          padding: 4px;
+        }
+
+        &__icon {
+          filter: invert(83%) sepia(3%) saturate(4144%) hue-rotate(201deg) brightness(109%) contrast(104%);
+        }
+
+        &__input {
+          border: none;
+          outline: none;
+          color: var(--dark-font-color);
+          height: 30px;
+          padding: 0 12px;
+        }
       }
 
-      .navbar__search,
       .navbar__icon {
         padding: 8px 12px;
         color: var(--highlight-color);
