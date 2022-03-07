@@ -3,6 +3,7 @@
 
 .detail {
   @extend .container;
+  margin: 0 auto;
 
   &__background {
     width: 100%;
@@ -81,9 +82,13 @@
 
 @include media(tablet, mobile) {
   .detail {
-    &__content {
+
+    &__content, &__misc {
       position: relative;
       top: -230px;
+    }
+
+    &__content {
       margin: 0 10px;
       column-gap: 20px;
       grid-template-areas:

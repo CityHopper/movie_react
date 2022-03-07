@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import "../_movies.scss"
 
-function Movies() {
+function Movies(props) {
+    const location = useLocation();
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([])
     const getMovies = useCallback(async () => {
@@ -17,6 +18,11 @@ function Movies() {
     useEffect(() => {
         getMovies()
     }, [getMovies])
+
+    useEffect(() => {
+        console.log(location)
+        // setMovies(searchResult)
+    }, [location])
 
     return (
         <>

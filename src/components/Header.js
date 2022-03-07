@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import "../_header.scss"
-// import searchIcon from "../magnifying-glass-solid.svg"
 
 function Header() {
+    const navigate = useNavigate();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const mobileMenuHandler = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     const [navbarDark, setNavbarDark] = useState(false);
@@ -21,8 +21,22 @@ function Header() {
         return () => window.removeEventListener("scroll", listenScrollEvent);
     }, []);
 
-    const navigate = useNavigate();
-    // const history = useHistory();
+    const [searchInput, setSearchInput] = useState("");
+    const [searchResult, setSearchResult] = useState({});
+
+    const onEnter = (e) => {
+        if (e.key === "Enter") {
+            getSearchResult();
+        }
+    }
+    const getSearchResult = async () => {
+        const json = await (
+            await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${searchInput}`)
+        ).json()
+        console.log(json)
+        setSearchResult(json.data.movies)
+        navigate("movies", {state: searchResult})
+    }
 
     return (
         <header>
@@ -57,7 +71,9 @@ function Header() {
                         <input type={"text"}
                                className={"navbar__search__input"}
                                placeholder={"영화를 검색해보세요!"}
-
+                               value={searchInput}
+                               onChange={(e) => setSearchInput(e.target.value)}
+                               onKeyPress={onEnter}
                         />
                     </li>
                     <li className="navbar__icon">ss</li>
