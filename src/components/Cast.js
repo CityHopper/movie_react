@@ -1,17 +1,12 @@
-import {useEffect} from "react";
 import "./../_cast.scss";
 
 function Cast(props) {
-    useEffect(() => {
-        console.log(props)
-    })
-
 
     return (
         <>
             <h2>캐스트</h2>
             <div className="cast-container">
-                {props.cast.map((c, index) => (
+                {props.cast && props.cast.map((c, index) => (
                     <div className={"cast"} key={index}>
                         <img className="cast__photo" alt={`photo`}
                              src={c.url_small_image

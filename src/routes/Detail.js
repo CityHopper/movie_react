@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useCallback, useEffect, useState} from "react";
+import {useLocation, useParams} from "react-router-dom";
 import Suggestion from "../components/Suggestion";
 import Cast from "../components/Cast"
 import Download from "../components/Download";
@@ -7,6 +7,8 @@ import "../_detail.scss"
 
 function Detail() {
     const {id} = useParams();
+    const location = useLocation();
+
     const [loading, setLoading] = useState(true);
     const [detail, setDetail] = useState();
     const getDetail = async () => {
@@ -18,12 +20,19 @@ function Detail() {
     }
     useEffect(() => {
         getDetail()
-    }, [])
+
+        window.onbeforeunload = function pushRefresh() {
+            window.scrollTo(0, 0);
+        };
+    }, [id])
 
     useEffect(() => {
         console.log(detail)
     }, [detail])
 
+    useEffect(() => {
+        console.log(location)
+    }, [location])
 
     return (
         <article className="detail">

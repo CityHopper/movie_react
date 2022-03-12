@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useCallback} from "react";
 import {Link} from "react-router-dom";
 import "./../_suggestions.scss";
 
@@ -15,12 +15,8 @@ function Suggestion(props) {
     }
 
     useEffect(() => {
-        getSuggestion().then(r => r);
-    }, [])
-
-    useEffect(() => {
-        console.log(suggestions)
-    }, [suggestions])
+        getSuggestion()
+    }, [props])
 
     return (
         <>
@@ -29,9 +25,8 @@ function Suggestion(props) {
                 : <>
                     <h2>비슷한 영화들</h2>
                     <div className="suggestion-container">
-                    {suggestions.data.movies.map((movie, index) => (
-                        <Link key={index} to={`/movies/${movie.id}`}
-                            // onClick={() => window.location.reload()}
+                    {suggestions.data.movies.map(movie => (
+                        <Link to={`/movies/${movie.id}`} key={movie.id}
                               className="suggestion">
                             <img className="suggestion__poster" alt={`poster`}
                                  src={movie.medium_cover_image}/>
