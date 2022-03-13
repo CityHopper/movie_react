@@ -20,10 +20,8 @@ function Detail() {
     }
     useEffect(() => {
         getDetail()
+        window.scrollTo(0, 0);
 
-        window.onbeforeunload = function pushRefresh() {
-            window.scrollTo(0, 0);
-        };
     }, [id])
 
     useEffect(() => {
