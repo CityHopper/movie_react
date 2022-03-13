@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import "../_header.scss"
 
@@ -22,20 +22,18 @@ function Header() {
     }, []);
 
     const [searchInput, setSearchInput] = useState("");
-    const [searchResult, setSearchResult] = useState({});
 
     const onEnter = (e) => {
         if (e.key === "Enter") {
-            getSearchResult();
+            getSearchResult().then(r => {
+                navigate(`/search/${searchInput}`, {state: r})
+            });
         }
     }
     const getSearchResult = async () => {
-        const json = await (
+        return await (
             await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${searchInput}`)
         ).json()
-        console.log(json)
-        setSearchResult(json.data.movies)
-        navigate("movies", {state: searchResult})
     }
 
     return (
@@ -50,7 +48,7 @@ function Header() {
                         ? "navbar__menu active flex__between"
                         : "navbar__menu flex__between"}>
                     <li className="navbar__item">
-                        <Link to={"/movies"}>Browse</Link>
+                        <Link to={"/browse"}>Browse</Link>
                     </li>
                     <li className="navbar__item">
                         <Link to={"/"}>Trending</Link>

@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useLocation, useParams} from "react-router-dom";
 import Suggestion from "../components/Suggestion";
 import Cast from "../components/Cast"
@@ -21,16 +21,7 @@ function Detail() {
     useEffect(() => {
         getDetail()
         window.scrollTo(0, 0);
-
     }, [id])
-
-    useEffect(() => {
-        console.log(detail)
-    }, [detail])
-
-    useEffect(() => {
-        console.log(location)
-    }, [location])
 
     return (
         <article className="detail">
