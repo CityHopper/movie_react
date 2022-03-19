@@ -1,0 +1,16 @@
+@import "_responsive";
+@import "_index";
+
+.carousel {
+  &__background {
+    width:100vw;
+    height: 100vh;
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
+  }
+
+}
+
+@include media(tablet, mobile) {
+
+}

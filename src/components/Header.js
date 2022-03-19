@@ -32,7 +32,7 @@ function Header() {
     }
     const getSearchResult = async () => {
         return await (
-            await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${searchInput}`)
+            await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${searchInput}&limit=50`)
         ).json()
     }
 

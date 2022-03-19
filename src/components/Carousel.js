@@ -4,44 +4,30 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation } from "swiper";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import "../_carousel.scss"
 // https://swiperjs.com/demos
 
 function Carousel(props) {
-    const [loading, setLoading] = useState(true);
-    const [suggestions, setSuggestions] = useState();
-
-    const getSuggestion = async () => {
-        const json = await (
-            await fetch(`https://yts.mx/api/v2/movie_suggestions.json?movie_id=${props.id}`)
-        ).json()
-        setSuggestions(json);
-        setLoading(false);
-    }
-
-    useEffect(() => {
-        getSuggestion();
-    }, [])
-
     return (
         <>
-            {loading
+            {props.loading
                 ? <p>Loading...</p>
                 : <Swiper
                     modules={[Navigation]}
-                    spaceBetween={10}
-                    slidesPerView={3}
+                    spaceBetween={0}
+                    slidesPerView={1}
                     navigation={true}
-                    className="carousel"
+                    scrollbar={{ draggable: true }}
+                    className=""
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
-                    {suggestions.data.movies.map((movie) => (
-                        <SwiperSlide key={movie.id} className="carousel__item">
-                            <Link to={`/movies/${movie.id}`}>
-                                <img className="" alt={`poster`}
-                                     src={movie.medium_cover_image}/>
-                                <h4 className="">{movie.title_long}</h4>
-                            </Link>
+                    {props.movies.movies.map((movie) => (
+                        <SwiperSlide key={movie.id} className={""}>
+                            {/*<Link to={`/movies/${movie.id}`}>*/}
+                                <article className={"carousel__background"}
+                                     style={{backgroundImage: `url(${movie.background_image})`}}/>
+                            {/*</Link>*/}
                         </SwiperSlide>
                     ))
                     }
