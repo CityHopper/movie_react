@@ -3,14 +3,43 @@
 
 .carousel {
   &__background {
-    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100vw;
     height: 100vh;
     background-size: auto 100vh;
     background-repeat: no-repeat;
   }
 
+  &__link {
+    height: 100%;
+    justify-content: center;
+  }
+
+  &__poster {
+    height: calc(100% - 70px);
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 30%) 0 0 2px;
+  }
+
+  &__title {
+    color: var(--dark-font-color);
+    text-decoration: none;
+    text-shadow: 1px 1px 2px var(--dark-bg-color);
+    height: 60px;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
 }
 
-@include media(tablet, mobile) {
+@include media(mobile) {
+  .carousel {
 
+    &__poster {
+      width: 80vw;
+      height: unset;
+    }
+  }
 }

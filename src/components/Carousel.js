@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "../_carousel.scss"
@@ -13,9 +13,14 @@ function Carousel(props) {
             {props.loading
                 ? <p>Loading...</p>
                 : <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation, Autoplay]}
+                    // autoplay={{
+                    //     delay: 10000,
+                    //     disableOnInteraction: false
+                    // }}
                     spaceBetween={0}
                     slidesPerView={1}
+                    loop={true}
                     navigation={true}
                     scrollbar={{ draggable: true }}
                     className=""
@@ -24,10 +29,17 @@ function Carousel(props) {
                 >
                     {props.movies.movies.map((movie) => (
                         <SwiperSlide key={movie.id} className={""}>
-                            {/*<Link to={`/movies/${movie.id}`}>*/}
                                 <article className={"carousel__background"}
-                                     style={{backgroundImage: `url(${movie.background_image})`}}/>
-                            {/*</Link>*/}
+                                     style={{backgroundImage: `url(${movie.background_image})`}}>
+                                    <Link to={`/movies/${movie.id}`}
+                                          className={"carousel__link flex__column"}>
+                                        <img alt={`Poster of ${movie.title}`}
+                                             src={movie.large_cover_image}
+                                             className={"carousel__poster"}
+                                        />
+                                        <div className={"carousel__title flex__center"}>{movie.title_long}</div>
+                                    </Link>
+                                </article>
                         </SwiperSlide>
                     ))
                     }
