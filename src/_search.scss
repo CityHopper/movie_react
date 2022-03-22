@@ -1,0 +1,24 @@
+@import "_responsive";
+@import "_index";
+
+.cover-search {
+  background-color: var(--gray-200);
+}
+
+.search {
+  z-index: 1;
+  display: grid;
+  gap: 10px 20px;
+
+  &__label {
+  }
+  &__input {
+  }
+  &__submit {
+    grid-column: 1 / 3;
+  }
+}
+
+@include media(tablet, mobile) {
+
+}
