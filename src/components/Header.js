@@ -51,10 +51,10 @@ function Header() {
                         <Link to={"/browse"}>Browse</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/"}>Trending</Link>
+                        <Link to={"/search"}>Search</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/"}>Menu3</Link>
+                        <Link to={"/"}>Trending</Link>
                     </li>
                 </ul>
                 <ul onClick={() => setIsMobileMenuOpen(false)}

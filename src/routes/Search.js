@@ -2,16 +2,23 @@ import React, {useCallback, useEffect, useState} from "react";
 import Movies from "../components/Movies"
 import "../_movies.scss"
 import {useLocation} from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function Search() {
     const location = useLocation();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [movies, setMovies] = useState([])
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    // https://yts.mx/api/v2/list_movies.json?quality=3D
 
     useEffect(() => {
         console.log(location)
-        setMovies(location.state.data.movies)
-        setLoading(false);
+        if (location.state) {
+            setLoading(true)
+            setMovies(location.state.data.movies)
+            setLoading(false);
+        }
     }, [location])
 
     return (
@@ -21,8 +28,10 @@ function Search() {
                 :
                 <>
                     <section className="container">
-                        <div className="cover cover-search">
-                            <h1>dd</h1>
+                        <div className="cover cover-search flex__center">
+                            <form>
+                                <input type={"text"}/>
+                            </form>
                         </div>
                         <Movies movies={movies}/>
                     </section>

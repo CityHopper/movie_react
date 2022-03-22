@@ -13,7 +13,7 @@ function Detail() {
     const [detail, setDetail] = useState();
     const getDetail = async () => {
         const json = await (
-            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true`)
+            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true&with_images=true`)
         ).json()
         setDetail(json.data.movie);
         setLoading(false);
@@ -22,6 +22,11 @@ function Detail() {
         getDetail()
         window.scrollTo(0, 0);
     }, [id])
+
+    useEffect(() => {
+        console.log(detail)
+        // detail.large_screenshot_image1 추가하기 todo
+    }, [detail])
 
     return (
         <article className="detail">

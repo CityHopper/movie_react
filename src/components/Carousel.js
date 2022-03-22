@@ -14,10 +14,10 @@ function Carousel(props) {
                 ? <p>Loading...</p>
                 : <Swiper
                     modules={[Navigation, Autoplay]}
-                    // autoplay={{
-                    //     delay: 10000,
-                    //     disableOnInteraction: false
-                    // }}
+                    autoplay={{
+                        delay: 10000,
+                        disableOnInteraction: false
+                    }}
                     spaceBetween={0}
                     slidesPerView={1}
                     loop={true}
