@@ -8,14 +8,14 @@ import "../_search.scss"
 function Search() {
     const location = useLocation();
     const [loading, setLoading] = useState(false);
-    const [movies, setMovies] = useState([])
+    const [searchResult, setSearchResult] = useState([])
 
     // https://yts.mx/api/v2/list_movies.json?quality=3D
     useEffect(() => {
         console.log(location)
         if (location.state) {
             setLoading(true)
-            setMovies(location.state.data.movies)
+            setSearchResult(location.state.data)
             setLoading(false);
         }
     }, [location])
@@ -35,11 +35,18 @@ function Search() {
             https://yts.mx/api/v2/list_movies.json?
             query_term=${data.queryTerm}&
             quality=${data.quality}&
+            page=1&
+            limit=20&
             with_rt_ratings=true
             `)
         ).json()
-        setMovies(result.data.movies)
+        console.log(result)
+        setSearchResult(result.data)
     }
+
+    useEffect(() => {
+        console.log(searchResult)
+    }, [searchResult])
 
     return (
         <>
@@ -48,7 +55,7 @@ function Search() {
                 :
                 <>
                     <section className="container">
-                        <div className="cover cover-search flex__center">
+                        <div className="cover cover-search flex__column flex__center">
                             <form onSubmit={handleSubmit(onSubmit)}
                                   className={"search"}>
                                 <label className={"search__label"}>검색어</label>
@@ -74,10 +81,12 @@ function Search() {
                                 </select>
                                 <input type="submit" className={"search__submit"} value={"검색"} />
                             </form>
+                            <h1>검색 결과: {searchResult.movie_count
+                                ? searchResult.movie_count: 0}개의 영화</h1>
                         </div>
-                        {movies.length
-                            ? <Movies movies={movies}/>
-                            : <h2 className={"flex__center"}>결과가 없습니다.</h2>}
+                        {searchResult.movie_count
+                            ? <Movies movies={searchResult.movies}/>
+                            : <h2 className={"flex__center"}>검색 조건을 바꿔봐요!</h2>}
                     </section>
                 </>
             }
