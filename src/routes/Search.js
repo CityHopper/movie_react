@@ -22,6 +22,33 @@ function Search() {
         }
     }, [location])
 
+    const genres = [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Biography",
+        "Comedy",
+        "Crime",
+        "Documentary",
+        "Drama",
+        "Family",
+        "Fantasy",
+        "Film-Noir",
+        "History",
+        "Horror",
+        "Music",
+        "Musical",
+        "Mystery",
+        "Romance",
+        "Sci-Fi",
+        "Short-Film",
+        "Sport",
+        "Superhero",
+        "Thriller",
+        "War",
+        "Western"
+    ]
+
     // Pagination
     let pageSize = 20;
     const [currentPage, setCurrentPage] = useState(1);
@@ -33,6 +60,7 @@ function Search() {
             await fetch(`
             https://yts.mx/api/v2/list_movies.json?
             query_term=${data.queryTerm}&
+            genre=${data.genre}&
             quality=${data.quality}&
             sort_by=${data.sortBy}&
             order_by=${data.orderBy}&
@@ -69,6 +97,14 @@ function Search() {
                                 <input className={"search__input"}
                                        {...register("queryTerm",
                                            {required: "검색어(필수)를 입력해주세요."})} />
+                                <label className={"search__label"}>장르</label>
+                                <select className={"search__input"}
+                                        {...register("genre")}>
+                                    <option value={""}>해당 없음</option>
+                                    {genres.map((genre, id) =>
+                                        <option value={genre} key={id}>{genre}</option>
+                                    )}
+                                </select>
                                 <label className={"search__label"}>최소 평점</label>
                                 <select className={"search__input"}
                                         {...register("minimumRating")}>
