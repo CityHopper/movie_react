@@ -1,10 +1,6 @@
 @import "_responsive";
 @import "_index";
 
-.cover-search {
-  background-color: var(--gray-200);
-}
-
 .search {
   z-index: 1;
   display: grid;
@@ -33,6 +29,10 @@
       position: relative;
       top:1px;
     }
+  }
+
+  &__error {
+    padding: 4px;
   }
 }
 

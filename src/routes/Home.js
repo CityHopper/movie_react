@@ -9,7 +9,10 @@ function Home() {
     const getUpcoming = async () => {
         const json = await (
             // await fetch(`https://yts.mx/api/v2/list_upcoming.json`)
-            await fetch(`https://yts.mx/api/v2/list_movies.json?quality=3D`)
+            await fetch(`
+            https://yts.mx/api/v2/list_movies.json?
+            limit=10&
+            quality=3D`)
         ).json()
         setUpcoming(json.data);
         setLoading(false);

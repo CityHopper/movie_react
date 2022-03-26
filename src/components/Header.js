@@ -48,7 +48,7 @@ function Header() {
                         ? "navbar__menu active flex__between"
                         : "navbar__menu flex__between"}>
                     <li className="navbar__item">
-                        <Link to={"/browse"}>Browse</Link>
+                        <Link to={"/latest"}>Latest</Link>
                     </li>
                     <li className="navbar__item">
                         <Link to={"/search"}>Search</Link>
@@ -74,7 +74,7 @@ function Header() {
                                onKeyPress={onEnter}
                         />
                     </li>
-                    <li className="navbar__icon">ss</li>
+                    <li className="navbar__icon">?</li>
                 </ul>
                 <button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}
                         onClick={mobileMenuHandler}>

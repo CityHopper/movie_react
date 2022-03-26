@@ -29,7 +29,6 @@ function Search() {
     // useForm
     const {register, handleSubmit, getValues, formState: {errors}} = useForm();
     const onSubmit = async (data) => {
-        console.log(data)
         let result = await (
             await fetch(`
             https://yts.mx/api/v2/list_movies.json?
@@ -47,11 +46,13 @@ function Search() {
     }
 
     useEffect(() => {
-        onSubmit(getValues())
+        if (getValues("queryTerm")) {
+            onSubmit(getValues());
+        }
     }, [currentPage])
 
     useEffect(() => {
-        console.log(searchResult)
+        window.scrollTo(0, 0);
     }, [searchResult])
 
     return (
@@ -66,7 +67,8 @@ function Search() {
                                   className={"search"}>
                                 <label className={"search__label"}>검색어</label>
                                 <input className={"search__input"}
-                                       {...register("queryTerm")} />
+                                       {...register("queryTerm",
+                                           {required: "검색어(필수)를 입력해주세요."})} />
                                 <label className={"search__label"}>최소 평점</label>
                                 <select className={"search__input"}
                                         {...register("minimumRating")}>
@@ -108,6 +110,10 @@ function Search() {
                             <h1>검색 결과: {searchResult.movie_count
                                 ? searchResult.movie_count : 0}개의 영화</h1>
                         </div>
+                        {errors.queryTerm
+                            && <div className={"search__error flex__center bg--red"}>
+                                {errors.queryTerm.message}</div>
+                        }
                         <div className={"bg--blue flex__center"}>
                             <Pagination
                                 className="pagination-bar"
@@ -119,7 +125,8 @@ function Search() {
                         </div>
                         {searchResult.movie_count
                             ? <Movies movies={searchResult.movies}/>
-                            : <h2 className={"flex__center"}>검색 조건을 바꿔봐요!</h2>}
+                            : <h2 className={"flex__center"}>{"원하는 영화를 검색해보세요!"}</h2>
+                        }
                         <div className={"bg--blue flex__center"}>
                             <Pagination
                                 className="pagination-bar"
