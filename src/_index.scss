@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6, a{
   height: 30%;
   width: 100%;
 }
-
+.bg--black {background-color: var(--dark-bg-color);}
 .bg--blue {
   background-image:linear-gradient(225deg, rgb(18, 28, 133) 0%, rgb(35, 48, 165) 29%, rgb(18, 75, 138) 73%, rgb(18, 82, 104) 100%);
 }

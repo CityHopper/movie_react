@@ -1,9 +1,11 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState, useMemo} from "react";
 import Movies from "../components/Movies"
 import {useLocation} from "react-router-dom";
-import { useForm } from "react-hook-form";
-import "../_movies.scss"
-import "../_search.scss"
+import {useForm} from "react-hook-form";
+import Pagination from "../components/Pagination";
+import "../_movies.scss";
+import "../_search.scss";
+import "../_pagination.scss";
 
 function Search() {
     const location = useLocation();
@@ -20,29 +22,33 @@ function Search() {
         }
     }, [location])
 
+    // Pagination
+    let pageSize = 20;
+    const [currentPage, setCurrentPage] = useState(1);
+
     // useForm
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const {register, handleSubmit, getValues, formState: {errors}} = useForm();
     const onSubmit = async (data) => {
         console.log(data)
-        console.log((`
-            https://yts.mx/api/v2/list_movies.json?
-            query_term=${data.queryTerm}&
-            quality=${data.quality}&
-            with_rt_ratings=true
-            `))
         let result = await (
             await fetch(`
             https://yts.mx/api/v2/list_movies.json?
             query_term=${data.queryTerm}&
             quality=${data.quality}&
-            page=1&
-            limit=20&
+            sort_by=${data.sortBy}&
+            order_by=${data.orderBy}&
+            page=${currentPage}&
+            limit=${pageSize}&
             with_rt_ratings=true
             `)
         ).json()
-        console.log(result)
+
         setSearchResult(result.data)
     }
+
+    useEffect(() => {
+        onSubmit(getValues())
+    }, [currentPage])
 
     useEffect(() => {
         console.log(searchResult)
@@ -55,7 +61,7 @@ function Search() {
                 :
                 <>
                     <section className="container">
-                        <div className="cover cover-search flex__column flex__center">
+                        <div className="cover bg--gray flex__column flex__end">
                             <form onSubmit={handleSubmit(onSubmit)}
                                   className={"search"}>
                                 <label className={"search__label"}>검색어</label>
@@ -65,28 +71,64 @@ function Search() {
                                 <select className={"search__input"}
                                         {...register("minimumRating")}>
                                     <option value="">해당 없음</option>
-                                    {[...Array(10)].map((_, i)=>i)
+                                    {[...Array(10)].map((_, i) => i)
                                         .map((int, key) => (
-                                        <option value={`${int}`} key={key}>{int}</option>
-                                    ))}
+                                            <option value={`${int}`} key={key}>{int}</option>
+                                        ))}
                                 </select>
                                 <label className={"search__label"}>화질</label>
                                 <select className={"search__input"}
-                                    {...register("quality")}>
+                                        {...register("quality")}>
                                     <option value="">해당 없음</option>
                                     <option value="720p">720p</option>
                                     <option value="1080p">1080p</option>
                                     <option value="2160p">2160p</option>
                                     <option value="3D">3D</option>
                                 </select>
-                                <input type="submit" className={"search__submit"} value={"검색"} />
+                                <label className={"search__label"}>정렬 기준</label>
+                                <select className={"search__input"}
+                                        {...register("sortBy")}>
+                                    <option value="date_added">추가된 날짜</option>
+                                    <option value="title">제목</option>
+                                    <option value="year">개봉연도</option>
+                                    <option value="rating">평점</option>
+                                    <option value="peers">피어</option>
+                                    <option value="seeds">시드</option>
+                                    <option value="download_count">다운로드 수</option>
+                                    <option value="like_count">좋아요 수</option>
+                                </select>
+                                <label className={"search__label"}>차순</label>
+                                <select className={"search__input"}
+                                        {...register("orderBy")}>
+                                    <option value="desc">내림차순</option>
+                                    <option value="asc">오름차순</option>
+                                </select>
+                                <input type="submit" className={"search__submit bg--black"} value={"검색"}/>
                             </form>
                             <h1>검색 결과: {searchResult.movie_count
-                                ? searchResult.movie_count: 0}개의 영화</h1>
+                                ? searchResult.movie_count : 0}개의 영화</h1>
+                        </div>
+                        <div className={"bg--blue flex__center"}>
+                            <Pagination
+                                className="pagination-bar"
+                                currentPage={currentPage}
+                                totalCount={searchResult.movie_count || 0}
+                                pageSize={pageSize}
+                                onPageChange={page => setCurrentPage(page)}
+                            />
                         </div>
                         {searchResult.movie_count
                             ? <Movies movies={searchResult.movies}/>
                             : <h2 className={"flex__center"}>검색 조건을 바꿔봐요!</h2>}
+                        <div className={"bg--blue flex__center"}>
+                            <Pagination
+                                className="pagination-bar"
+                                currentPage={currentPage}
+                                totalCount={searchResult.movie_count || 0}
+                                pageSize={pageSize}
+                                onPageChange={page => setCurrentPage(page)}
+                            />
+                        </div>
                     </section>
                 </>
             }
