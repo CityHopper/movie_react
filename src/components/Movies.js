@@ -22,8 +22,9 @@ function Movies(props) {
                             ))}
                         </div>
                     </div>
-                    <div className="movie__rating flex__center">
-                        {movie.rating}
+                    <div className="movie__rating flex__column">
+                        <span>IMDb 평점</span>
+                        <b>{movie.rating}</b>
                     </div>
 
                 </Link>

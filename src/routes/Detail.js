@@ -50,10 +50,10 @@ function Detail() {
                                 {detail.title}
                             </h1>
                             <div className="detail__item">
-                                {detail.year} ・ {detail.runtime} mins
+                                개봉년도: <b>{detail.year}</b> ・ 러닝타임: <b>{detail.runtime}</b>분
                             </div>
                             <div className={"detail__item"}>
-                                Rating: <b>{detail.rating}</b>
+                                IMDb 평점: <b>{detail.rating}</b> ・ 다운로드: <b>{detail.download_count.toLocaleString()}</b>회
                             </div>
                             <div className="detail__item flex__start flex__wrap">
                                 {detail.genres.map((genre, index) => (

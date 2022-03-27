@@ -24,8 +24,8 @@
     display: flex;
 
     &__genre {
-      background-color: var(--main-color);
-      color: white;
+      color: var(--dark-bg-color);
+      background-color: var(--gray-200);
       border-radius: 10px;
       padding: 4px 8px;
       margin: 2px 3px;
@@ -33,10 +33,16 @@
   }
 
   &__rating {
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--dark-font-color);
+    span {
+      font-size: 0.8em;
+      color: var(--gray-200);
+    }
+    b {
+      padding: 0 1em;
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--dark-font-color);
+    }
   }
 }
 
@@ -75,7 +81,12 @@
     }
 
     &__rating {
-      font-size: 1em;
+      span {
+        font-size: 0.6em;
+      }
+      b {
+        font-size: 1em;
+      }
     }
   }
 }
