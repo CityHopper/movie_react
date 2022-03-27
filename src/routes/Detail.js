@@ -11,6 +11,7 @@ function Detail() {
 
     const [loading, setLoading] = useState(true);
     const [detail, setDetail] = useState();
+    const [screenShots, setScreenShots] = useState([]);
     const getDetail = async () => {
         const json = await (
             await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true&with_images=true`)
@@ -26,7 +27,14 @@ function Detail() {
     useEffect(() => {
         console.log(detail)
         // detail.large_screenshot_image1 추가하기 todo
+        if (detail) {
+            detail.large_screenshot_image1 && setScreenShots([...screenShots].push(detail.large_screenshot_image1))
+        }
     }, [detail])
+
+    useEffect(() => {
+        console.log(screenShots)
+    }, [screenShots])
 
     return (
         <article className="detail">
@@ -58,23 +66,20 @@ function Detail() {
                         <p className="detail__plot">{detail.description_full}</p>
                     </div>
                     <div className={"detail__misc"}>
-                        <div className={"detail__misc__cast"}>
-                            <Cast cast={detail.cast}/>
-                        </div>
-                        <div className="detail__misc__download">
-                            <h2>토렌트 다운로드</h2>
-                            <div className={"download-container"}>
-                            {detail.torrents.map((torrent, index) => (
-                                <Download download={torrent} key={index}/>
-                            ))}
+                        {detail.cast &&
+                            <div className={"detail__misc__cast"}>
+                                <Cast cast={detail.cast}/>
                             </div>
+                        }
+                        {detail.torrents &&
+                        <div className="detail__misc__download">
+                            {<Download torrents={detail.torrents}/>}
                         </div>
+                        }
                         <div className={"detail__misc__suggestions"}>
                             <Suggestion id={id}/>
                         </div>
-
                     </div>
-
                 </>
             }
         </article>
