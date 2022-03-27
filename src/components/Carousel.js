@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import { Navigation, Autoplay } from "swiper";
+import {Navigation, Autoplay, Pagination} from "swiper";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "../_carousel.scss"
@@ -13,7 +13,7 @@ function Carousel(props) {
             {props.loading
                 ? <p>Loading...</p>
                 : <Swiper
-                    modules={[Navigation, Autoplay]}
+                    modules={[Navigation, Autoplay, Pagination]}
                     autoplay={{
                         delay: 10000,
                         disableOnInteraction: false
@@ -22,10 +22,11 @@ function Carousel(props) {
                     slidesPerView={1}
                     loop={true}
                     navigation={true}
+                    pagination={{ clickable: true }}
                     scrollbar={{ draggable: true }}
-                    className=""
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
+                    // className=""
+                    // onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
                 >
                     {props.movies.movies.map((movie) => (
                         <SwiperSlide key={movie.id} className={""}>

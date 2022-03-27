@@ -4,6 +4,7 @@ import Suggestion from "../components/Suggestion";
 import Cast from "../components/Cast"
 import Download from "../components/Download";
 import "../_detail.scss"
+import Screenshots from "../components/Screenshots";
 
 function Detail() {
     const {id} = useParams();
@@ -11,7 +12,7 @@ function Detail() {
 
     const [loading, setLoading] = useState(true);
     const [detail, setDetail] = useState();
-    const [screenShots, setScreenShots] = useState([]);
+    const [screenshots, setScreenshots] = useState([]);
     const getDetail = async () => {
         const json = await (
             await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true&with_images=true`)
@@ -24,17 +25,15 @@ function Detail() {
         window.scrollTo(0, 0);
     }, [id])
 
+    // large_screenshot_image URL 추가
     useEffect(() => {
-        console.log(detail)
-        // detail.large_screenshot_image1 추가하기 todo
+        setScreenshots([])
         if (detail) {
-            detail.large_screenshot_image1 && setScreenShots([...screenShots].push(detail.large_screenshot_image1))
+            detail.large_screenshot_image1 && setScreenshots(screenshots => [...screenshots, detail.large_screenshot_image1]);
+            detail.large_screenshot_image2 && setScreenshots(screenshots => [...screenshots, detail.large_screenshot_image2]);
+            detail.large_screenshot_image3 && setScreenshots(screenshots => [...screenshots, detail.large_screenshot_image3]);
         }
     }, [detail])
-
-    useEffect(() => {
-        console.log(screenShots)
-    }, [screenShots])
 
     return (
         <article className="detail">
@@ -71,10 +70,15 @@ function Detail() {
                                 <Cast cast={detail.cast}/>
                             </div>
                         }
+                        {screenshots.length &&
+                            <div className={"detail__misc__screenshots"}>
+                                <Screenshots screenshots={screenshots}/>
+                            </div>
+                        }
                         {detail.torrents &&
-                        <div className="detail__misc__download">
-                            {<Download torrents={detail.torrents}/>}
-                        </div>
+                            <div className="detail__misc__download">
+                                {<Download torrents={detail.torrents}/>}
+                            </div>
                         }
                         <div className={"detail__misc__suggestions"}>
                             <Suggestion id={id}/>

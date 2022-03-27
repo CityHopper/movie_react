@@ -23,7 +23,7 @@ function Suggestion(props) {
             {loading
                 ? <p className="flex__center">Loading...</p>
                 : <>
-                    <h2>비슷한 영화들</h2>
+                    <h2>이 영화는 어때요?</h2>
                     <div className="suggestion-container">
                     {suggestions.data.movies.map(movie => (
                         <Link to={`/movies/${movie.id}`} key={movie.id}

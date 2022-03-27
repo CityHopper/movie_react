@@ -35,7 +35,7 @@ function Latest() {
                                 wordBreak:"keep-all",
                                 padding:"1em"
                             }}>
-                                가장 최근에 추가된 영화들을 만나보세요!
+                                가장 최근에 추가된 영화 20편을 만나보세요!
                             </h1>
                         </div>
                         <Movies movies={movies}/>

@@ -11,8 +11,7 @@ function Home() {
             // await fetch(`https://yts.mx/api/v2/list_upcoming.json`)
             await fetch(`
             https://yts.mx/api/v2/list_movies.json?
-            limit=5
-            `)
+            limit=5`)
         ).json()
         setUpcoming(json.data);
         setLoading(false);
