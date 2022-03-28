@@ -3,12 +3,15 @@ import "./../_download.scss";
 
 function Download(props) {
 
-
     return (
         <>
             <h2>토렌트 다운로드</h2>
             <div className={"download-container"}>
-                {props.torrents.sort((a, b) => parseFloat(a.size) - parseFloat(b.size))
+                {props.torrents.sort((a, b) => {
+                    let resultA = a.size.slice(-2) === "MB" ? parseFloat(a.size) / 1024 : parseFloat(a.size);
+                    let resultB = b.size.slice(-2) === "MB" ? parseFloat(b.size) / 1024 : parseFloat(b.size);
+                    return resultA - resultB
+                })
                     .map((torrent, id) => (
                     <Link to={torrent.url} target="_blank"
                           key={id} className={

@@ -15,7 +15,6 @@ function Home() {
         ).json()
         setUpcoming(json.data);
         setLoading(false);
-        console.log(json)
     }
 
     useEffect(() => {

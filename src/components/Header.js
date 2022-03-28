@@ -49,13 +49,13 @@ function Header() {
                         ? "navbar__menu active flex__between"
                         : "navbar__menu flex__between"}>
                     <li className="navbar__item">
+                        <Link to={"/"}>Home</Link>
+                    </li>
+                    <li className="navbar__item">
                         <Link to={"/latest"}>Latest</Link>
                     </li>
                     <li className="navbar__item">
                         <Link to={"/search"}>Search</Link>
-                    </li>
-                    <li className="navbar__item">
-                        <Link to={"/"}>Trending</Link>
                     </li>
                 </ul>
                 <ul onClick={() => setIsMobileMenuOpen(false)}
