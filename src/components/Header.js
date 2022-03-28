@@ -7,6 +7,7 @@ function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const mobileMenuHandler = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     const [navbarDark, setNavbarDark] = useState(false);
+    const [onSearching, setOnSearching] = useState(false);
 
     const listenScrollEvent = event => {
         if (window.scrollY < 50) {
@@ -62,19 +63,24 @@ function Header() {
                         ? "navbar__misc active"
                         : "navbar__misc"}>
                     <li className="navbar__search">
-                        <img alt={"검색"}
-                             src={"../magnifying-glass-solid.svg"}
-                             // src={searchIcon}
-                             className={"navbar__search__icon"}/>
+                        <button className={"navbar__search__icon flex__center"}>
+                            <img alt={"검색"}
+                                 src={"../magnifier.png"}
+                                 className={""}
+                                 onClick={() => setOnSearching(!onSearching)}
+                            />
+                        </button>
                         <input type={"text"}
-                               className={"navbar__search__input"}
+                               className={onSearching
+                                   ? "navbar__search__input active"
+                                   : "navbar__search__input"}
                                placeholder={"영화를 검색해보세요!"}
                                value={searchInput}
                                onChange={(e) => setSearchInput(e.target.value)}
                                onKeyPress={onEnter}
                         />
                     </li>
-                    <li className="navbar__icon">?</li>
+                    <li className="navbar__icon"><Link to={"/"}>?</Link></li>
                 </ul>
                 <button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}
                         onClick={mobileMenuHandler}>
