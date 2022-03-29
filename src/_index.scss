@@ -133,14 +133,37 @@ h1, h2, h3, h4, h5, h6, a {
   background-image: linear-gradient(229deg, rgb(65, 91, 103) 0%, rgb(47, 74, 90) 27%, rgb(62, 74, 104) 72%, rgb(74, 80, 102) 100%);
 }
 
-.button--go-back {
-  display: none;
-  position: absolute;
-  top: 60px;
+
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+
+  &--right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  &--left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  &--up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+  &--down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
 }
 
+
 @include media(mobile) {
-  .button--go-back {
-    display: flex;
-  }
+
 }

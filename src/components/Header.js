@@ -82,13 +82,22 @@ function Header() {
                     </li>
                     <li className="navbar__icon"><Link to={"/"}>?</Link></li>
                 </ul>
-                <button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}
-                        onClick={mobileMenuHandler}>
-                    메뉴
-                </button>
+                {/*<button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}*/}
+                {/*        onClick={mobileMenuHandler}>메뉴</button>*/}
+
+                <div className="navbar__toggle">
+                    <input id="navbar__toggle__checkbox" type="checkbox" checked={isMobileMenuOpen}
+                           onChange={mobileMenuHandler}
+                    />
+                    <label className="navbar__toggle__label" htmlFor="navbar__toggle__checkbox">
+                        <span/>
+                    </label>
+                </div>
+
             </nav>
-            <button className="button--go-back"
-                    onClick={() => navigate(-1)}>뒤로
+            <button className="button--go-back flex__center"
+                    onClick={() => navigate(-1)}>
+                <i className="arrow arrow--left"/>
             </button>
 
         </header>
