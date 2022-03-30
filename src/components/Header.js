@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import "../_header.scss"
 
 function Header() {
@@ -26,6 +26,7 @@ function Header() {
 
     const onEnter = (e) => {
         if (e.key === "Enter") {
+            setIsMobileMenuOpen(false)
             getSearchResult().then(r => {
                 navigate(`/search/${searchInput}`, {state: r})
             });
@@ -48,13 +49,16 @@ function Header() {
                         ? "navbar__menu active flex__between"
                         : "navbar__menu flex__between"}>
                     <li className="navbar__item">
-                        <Link className={"flex__center"} to={"/"}>Home</Link>
+                        <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
+                                 to={"/"}>Home</NavLink>
                     </li>
                     <li className="navbar__item">
-                        <Link className={"flex__center"} to={"/latest"}>Latest</Link>
+                        <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
+                                 to={"/latest"}>Latest</NavLink>
                     </li>
                     <li className="navbar__item">
-                        <Link className={"flex__center"} to={"/search"}>Search</Link>
+                        <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
+                                 to={"/search"}>Search</NavLink>
                     </li>
                 </ul>
                 <ul
@@ -79,8 +83,9 @@ function Header() {
                                onKeyPress={onEnter}
                         />
                     </li>
-                    <li className="navbar__icon">
-                        <Link className={"flex__center"} to={"/"}>?</Link>
+                    <li className="navbar__icon flex__center">
+                        <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
+                                 to={"/"}>?</NavLink>
                     </li>
                 </ul>
 

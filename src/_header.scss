@@ -41,7 +41,6 @@ header {
       height: 100%;
 
       .navbar__item {
-        padding: 8px 0;
         cursor: pointer;
         font-size: 14px;
         height: 100%;
@@ -102,6 +101,10 @@ header {
           height: 30px;
           padding: 0 8px;
 
+          &::placeholder {
+            text-align: center;
+          }
+
         }
       }
 
@@ -146,7 +149,7 @@ header {
       .navbar__toggle__label {
         position: fixed;
         top: 20px;
-        right: 20px;
+        right: 10px;
         width: 26px;
         height: 26px;
         cursor: pointer;
@@ -190,23 +193,14 @@ header {
     }
   }
 
-  .button--circle {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 10px;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background: var(--gray-200);
-    opacity: 0.7;
-  }
 }
 
 @include media(tablet, mobile) {
   header {
     .navbar {
+      &__title {
+        font-size: 2em;
+      }
 
       &__menu {
       }
@@ -221,7 +215,7 @@ header {
             padding: 0;
 
             &.active {
-              width: 140px;
+              width: 120px;
               padding: 0 4px;
             }
           }
@@ -265,6 +259,7 @@ header {
           text-align: center;
 
           a {
+            height: 3em;
             padding-left: 0;
           }
         }
@@ -283,6 +278,24 @@ header {
 
         .navbar__search {
           margin: 0;
+
+          &__icon {
+            display: none;
+          }
+
+          &__input {
+            width: 120px;
+            padding: 0 1em;
+          }
+        }
+
+        .navbar__icon {
+          height: 100%;
+          padding: 0;
+
+          a {
+            height: 3em;
+          }
         }
       }
 
@@ -293,9 +306,6 @@ header {
 
     }
 
-    .button--circle {
-      display: flex;
-    }
   }
 
 }
