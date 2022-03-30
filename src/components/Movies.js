@@ -15,7 +15,7 @@ function Movies(props) {
                             {movie.title} ({movie.year})
                         </h1>
                         <div className="movie__genres flex__wrap">
-                            {movie.genres.map((genre, index) => (
+                            {movie.genres && movie.genres.map((genre, index) => (
                                 <span key={index} className="movie__genres__genre">
                                         {genre}
                                     </span>

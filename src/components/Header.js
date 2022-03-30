@@ -4,16 +4,16 @@ import "../_header.scss"
 
 function Header() {
     const navigate = useNavigate();
+    const [isScrolledDown, setIsScrolledDown] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const mobileMenuHandler = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-    const [navbarDark, setNavbarDark] = useState(false);
     const [onSearching, setOnSearching] = useState(false);
 
     const listenScrollEvent = event => {
         if (window.scrollY < 50) {
-            return setNavbarDark(false);
+            return setIsScrolledDown(false);
         } else if (window.scrollY >= 50) {
-            return setNavbarDark(true);
+            return setIsScrolledDown(true);
         }
     };
 
@@ -39,26 +39,25 @@ function Header() {
 
     return (
         <header>
-            <nav role="navigation" className={navbarDark
-                ? "navbar navbar-dark flex__start"
-                : "navbar flex__start"}>
+            <nav role="navigation" className={
+                (!isScrolledDown && !isMobileMenuOpen) ? "navbar flex__start" : "navbar navbar-dark flex__start"}>
                 <Link className="navbar__title"
                       to={"/"} tabIndex={0}>ReactMovie</Link>
-                <ul onClick={() => setIsMobileMenuOpen(false)}
+                <ul
                     className={isMobileMenuOpen
                         ? "navbar__menu active flex__between"
                         : "navbar__menu flex__between"}>
                     <li className="navbar__item">
-                        <Link to={"/"}>Home</Link>
+                        <Link className={"flex__center"} to={"/"}>Home</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/latest"}>Latest</Link>
+                        <Link className={"flex__center"} to={"/latest"}>Latest</Link>
                     </li>
                     <li className="navbar__item">
-                        <Link to={"/search"}>Search</Link>
+                        <Link className={"flex__center"} to={"/search"}>Search</Link>
                     </li>
                 </ul>
-                <ul onClick={() => setIsMobileMenuOpen(false)}
+                <ul
                     className={isMobileMenuOpen
                         ? "navbar__misc active"
                         : "navbar__misc"}>
@@ -80,10 +79,10 @@ function Header() {
                                onKeyPress={onEnter}
                         />
                     </li>
-                    <li className="navbar__icon"><Link to={"/"}>?</Link></li>
+                    <li className="navbar__icon">
+                        <Link className={"flex__center"} to={"/"}>?</Link>
+                    </li>
                 </ul>
-                {/*<button className={isMobileMenuOpen ? "navbar__toggle active" : "navbar__toggle"}*/}
-                {/*        onClick={mobileMenuHandler}>메뉴</button>*/}
 
                 <div className="navbar__toggle">
                     <input id="navbar__toggle__checkbox" type="checkbox" checked={isMobileMenuOpen}
@@ -93,13 +92,7 @@ function Header() {
                         <span/>
                     </label>
                 </div>
-
             </nav>
-            <button className="button--go-back flex__center"
-                    onClick={() => navigate(-1)}>
-                <i className="arrow arrow--left"/>
-            </button>
-
         </header>
     )
 }
