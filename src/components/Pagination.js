@@ -101,7 +101,7 @@ export default function Pagination(props) {
                 })}
                 onClick={onPrevious}
             >
-                <div className="arrow left" />
+                <div className="pagination-arrow left" />
             </li>
             {paginationRange.map(pageNumber => {
 
@@ -129,7 +129,7 @@ export default function Pagination(props) {
                 })}
                 onClick={onNext}
             >
-                <div className="arrow right" />
+                <div className="pagination-arrow right" />
             </li>
         </ul>
 
