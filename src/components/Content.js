@@ -1,5 +1,5 @@
 import React from "react";
-import {Routes, Route, BrowserRouter} from "react-router-dom";
+import {Routes, Route, BrowserRouter, HashRouter} from "react-router-dom";
 import Home from "../routes/Home";
 import Header from "./Header";
 import Latest from "../routes/Latest";
@@ -10,7 +10,7 @@ import About from "../routes/About";
 
 function Content() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Header />
             <Routes>
                 <Route path={"/"} element={<Home />} />
@@ -20,7 +20,7 @@ function Content() {
                 <Route path={`/movies/:id`} element={<Detail />} />
                 <Route path={`/about`} element={<About />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
