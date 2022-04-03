@@ -85,7 +85,7 @@ function Header() {
                     </li>
                     <li className="navbar__icon flex__center">
                         <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
-                                 to={"/"}>?</NavLink>
+                                 to={"/about"}>?</NavLink>
                     </li>
                 </ul>
 

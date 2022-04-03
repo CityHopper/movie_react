@@ -29,12 +29,7 @@ function Latest() {
                 <>
                     <section className="container">
                         <div className="cover bg--green flex__center">
-                            <h1 style={{
-                                zIndex:1,
-                                textAlign:"center",
-                                wordBreak:"keep-all",
-                                padding:"1em"
-                            }}>
+                            <h1 className={"cover__title"}>
                                 가장 최근에 추가된 영화 20편을 만나보세요!
                             </h1>
                         </div>

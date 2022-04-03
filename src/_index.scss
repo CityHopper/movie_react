@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 @import "_responsive";
 
 :root {
@@ -24,6 +25,14 @@ body {
 h1, h2, h3, h4, h5, h6, a {
   letter-spacing: -1px;
   text-decoration: none;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.5em;
+  color: var(--gray-100);
 }
 
 .container {
@@ -107,6 +116,12 @@ h1, h2, h3, h4, h5, h6, a {
   left: 0;
   height: 30%;
   width: 100%;
+}
+.cover__title {
+  z-index:1;
+  text-align: center;
+  word-break: keep-all;
+  padding: 1em;
 }
 
 .bg--black {
