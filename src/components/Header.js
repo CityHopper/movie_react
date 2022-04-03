@@ -48,15 +48,15 @@ function Header() {
                     className={isMobileMenuOpen
                         ? "navbar__menu active flex__between"
                         : "navbar__menu flex__between"}>
-                    <li className="navbar__item">
+                    <li className="navbar__menu__item">
                         <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
                                  to={"/"}>Home</NavLink>
                     </li>
-                    <li className="navbar__item">
+                    <li className="navbar__menu__item">
                         <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
                                  to={"/latest"}>Latest</NavLink>
                     </li>
-                    <li className="navbar__item">
+                    <li className="navbar__menu__item">
                         <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
                                  to={"/search"}>Search</NavLink>
                     </li>
@@ -65,25 +65,24 @@ function Header() {
                     className={isMobileMenuOpen
                         ? "navbar__misc active"
                         : "navbar__misc"}>
-                    <li className="navbar__search">
-                        <button className={"navbar__search__icon flex__center"}>
+                    <li className="navbar__misc__search">
+                        <button className={"navbar__misc__search__icon flex__center"}>
                             <img alt={"검색"}
                                  src={"../magnifier.png"}
-                                 className={""}
                                  onClick={() => setOnSearching(!onSearching)}
                             />
                         </button>
                         <input type={"text"}
                                className={onSearching
-                                   ? "navbar__search__input active"
-                                   : "navbar__search__input"}
+                                   ? "navbar__misc__search__input active"
+                                   : "navbar__misc__search__input"}
                                placeholder={"영화를 검색해보세요!"}
                                value={searchInput}
                                onChange={(e) => setSearchInput(e.target.value)}
                                onKeyPress={onEnter}
                         />
                     </li>
-                    <li className="navbar__icon flex__center">
+                    <li className="navbar__misc__item flex__center">
                         <NavLink className={"flex__center"} onClick={() => setIsMobileMenuOpen(false)}
                                  to={"/about"}>?</NavLink>
                     </li>

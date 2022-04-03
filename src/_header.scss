@@ -39,7 +39,7 @@ header {
       margin-block-end: 0;
       height: 100%;
 
-      .navbar__item {
+      &__item {
         cursor: pointer;
         height: 100%;
 
@@ -69,7 +69,7 @@ header {
       margin-block-end: 0;
       margin: 0 0 0 auto;
 
-      .navbar__search {
+      &__search {
         display: flex;
         margin: 0 0 0 auto;
         padding: 2px 12px;
@@ -107,15 +107,18 @@ header {
         }
       }
 
-      .navbar__icon {
+      &__item {
         padding: 8px 12px;
         cursor: pointer;
         height: 18px;
 
         a {
-          height: 14px;
-          font-size: 14px;
           color: var(--gray-100);
+          height: 100%;
+          width: 100%;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: normal;
         }
 
       }
@@ -202,7 +205,7 @@ header {
       }
 
       &__menu {
-        .navbar__item {
+        &__item {
           a {
             font-size: 14px;
           }
@@ -211,7 +214,7 @@ header {
 
       &__misc {
 
-        .navbar__search {
+        &__search {
 
           &__input {
             width: 0;
@@ -258,7 +261,7 @@ header {
           display: flex;
         }
 
-        .navbar__item {
+        &__item {
           width: 100%;
           text-align: center;
 
@@ -280,7 +283,7 @@ header {
           display: flex;
         }
 
-        .navbar__search {
+        &__search {
           margin: 0;
 
           &__icon {
@@ -293,7 +296,7 @@ header {
           }
         }
 
-        .navbar__icon {
+        &__item {
           height: 100%;
           padding: 0;
 
