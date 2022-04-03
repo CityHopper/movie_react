@@ -3,10 +3,25 @@
 
 
 .about {
-  &__dropdown {
+  &__q {
+    width: 100%;
     border: 0;
     outline: 0;
-    background: none;
-    color:var(--dark-font-color)
+    color:var(--dark-font-color);
+    cursor: pointer;
+    padding: 0 1em;
+    h2 {
+      &::before {
+        content: "Q.\00a0 ";
+        display:inline-flex;
+      }
+    }
+  }
+
+  &__a {
+    display:none;
+    &.active {
+      display: flex;
+    }
   }
 }
