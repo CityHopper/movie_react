@@ -27,9 +27,10 @@ function Header() {
     const onEnter = (e) => {
         if (e.key === "Enter") {
             setIsMobileMenuOpen(false)
-            getSearchResult().then(r => {
-                navigate(`/search/${searchInput}`, {state: r})
-            });
+            navigate(`/search?query=${searchInput}`)
+            // getSearchResult().then(r => {
+            //     navigate(`/search?query=${searchInput}`, {state: r})
+            // });
         }
     }
     const getSearchResult = async () => {
@@ -68,7 +69,7 @@ function Header() {
                     <li className="navbar__misc__search">
                         <button className={"navbar__misc__search__icon flex__center"}>
                             <img alt={"검색"}
-                                 src={"../magnifier.png"}
+                                 src={"./magnifier.png"}
                                  onClick={() => setOnSearching(!onSearching)}
                             />
                         </button>

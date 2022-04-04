@@ -1,6 +1,6 @@
-import React, {useCallback, useEffect, useState, useMemo} from "react";
+import React, {useEffect, useState, useMemo} from "react";
 import Movies from "../components/Movies"
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import Pagination from "../components/Pagination";
 import "../_movies.scss";
@@ -8,7 +8,19 @@ import "../_search.scss";
 import "../_pagination.scss";
 
 function Search() {
+    const navigate = useNavigate();
     const location = useLocation();
+    function useQuery() {
+        const {search} = useLocation();
+        return useMemo(() => new URLSearchParams(search), [search])
+    }
+    let query = useQuery();
+
+    useEffect(() => {
+        console.log(query.get("query"))
+        console.log(query.get("genre"))
+    })
+
     const [loading, setLoading] = useState(false);
     const [searchResult, setSearchResult] = useState([])
 
@@ -56,6 +68,8 @@ function Search() {
     // useForm
     const {register, handleSubmit, getValues, formState: {errors}} = useForm();
     const onSubmit = async (data) => {
+        navigate(`/search?query=${query.get("query")}`)
+
         let result = await (
             await fetch(`
             https://yts.mx/api/v2/list_movies.json?

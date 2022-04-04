@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Carousel from "../components/Carousel";
-import Movies from "../components/Movies";
 
 function Home() {
     const [loading, setLoading] = useState(true);
