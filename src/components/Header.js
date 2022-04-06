@@ -61,7 +61,7 @@ function Header() {
                     <li className="navbar__misc__search">
                         <button className={"navbar__misc__search__icon flex__center"}>
                             <img alt={"검색"}
-                                 src={"./magnifier.png"}
+                                 src={"./magnifier.png"}  // todo 깃페이지 배포시 엑박 잡기
                                  onClick={() => setOnSearching(!onSearching)}
                             />
                         </button>

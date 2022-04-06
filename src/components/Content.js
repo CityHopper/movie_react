@@ -7,18 +7,17 @@ import Search from "../routes/Search";
 import Detail from "../routes/Detail";
 import About from "../routes/About";
 
-
 function Content() {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL}>
-            <Header />
+            <Header/>
             <Routes>
-                <Route path={"/"} element={<Home />} />
-                <Route path={"/latest"} element={<Latest />} />
-                <Route path={"/search"} element={<Search />} />
-                <Route path={"/search?/*"} element={<Search />} />
-                <Route path={`/movies/:id`} element={<Detail />} />
-                <Route path={`/about`} element={<About />} />
+                <Route path={"/"} element={<Home/>}/>
+                <Route path={"/latest"} element={<Latest/>}/>
+                <Route path={"/search"} element={<Search/>}/>
+                <Route path={"/search?/*"} element={<Search/>}/>
+                <Route path={`/movies/:id`} element={<Detail/>}/>
+                <Route path={`/about`} element={<About/>}/>
             </Routes>
         </BrowserRouter>
     )

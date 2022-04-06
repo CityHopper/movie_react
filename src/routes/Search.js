@@ -44,6 +44,7 @@ function Search() {
         const {search} = useLocation();
         return useMemo(() => new URLSearchParams(search), [search])
     }
+
     let query = useQuery();
 
     const getSearchResult = async () => {

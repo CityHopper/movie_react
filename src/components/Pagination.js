@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 const range = (start, end) => {
     let length = end - start + 1;
-    return Array.from({ length }, (_, idx) => idx + start);
+    return Array.from({length}, (_, idx) => idx + start);
 };
 
 export const DOTS = '...';
@@ -92,7 +92,7 @@ export default function Pagination(props) {
 
     return (
         <ul
-            className={classnames('pagination-container', { [className]: className })}
+            className={classnames('pagination-container', {[className]: className})}
         >
             {/* Left navigation arrow */}
             <li
@@ -101,7 +101,7 @@ export default function Pagination(props) {
                 })}
                 onClick={onPrevious}
             >
-                <div className="pagination-arrow left" />
+                <div className="pagination-arrow left"/>
             </li>
             {paginationRange.map((pageNumber, id) => {
 
@@ -129,7 +129,7 @@ export default function Pagination(props) {
                 })}
                 onClick={onNext}
             >
-                <div className="pagination-arrow right" />
+                <div className="pagination-arrow right"/>
             </li>
         </ul>
 
