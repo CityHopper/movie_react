@@ -91,21 +91,12 @@ h1, h2, h3, h4, h5, h6, a {
   margin-block-end: 0;
 }
 
-//.container--big {
-//  margin: 0 20px;
-//}
-//.container--small {
-//  margin: 0 60px;
-//  box-sizing: border-box;
-//}
-
 .cover {
   width: 100%;
   height: 350px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 .cover:before {
@@ -117,8 +108,9 @@ h1, h2, h3, h4, h5, h6, a {
   height: 30%;
   width: 100%;
 }
+
 .cover__title {
-  z-index:1;
+  z-index: 1;
   text-align: center;
   word-break: keep-all;
   padding: 1em;
@@ -186,10 +178,5 @@ h1, h2, h3, h4, h5, h6, a {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
-
-}
-
-
-@include media(mobile) {
 
 }

@@ -27,16 +27,8 @@ function Header() {
     const onEnter = (e) => {
         if (e.key === "Enter") {
             setIsMobileMenuOpen(false)
-            navigate(`/search?query=${searchInput}`)
-            // getSearchResult().then(r => {
-            //     navigate(`/search?query=${searchInput}`, {state: r})
-            // });
+            navigate(`/search?queryTerm=${searchInput}`)
         }
-    }
-    const getSearchResult = async () => {
-        return await (
-            await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${searchInput}&limit=50`)
-        ).json()
     }
 
     return (

@@ -22,23 +22,17 @@ function Latest() {
     }, [getMovies])
 
     return (
-        <>
+        <section className="container">
+            <div className="cover bg--green flex__center">
+                <h1 className={"cover__title"}>
+                    가장 최근에 추가된 영화 20편을 만나보세요!
+                </h1>
+            </div>
             {loading
-                ? (<h1 className="loading flex__center">Loading...</h1>)
-                :
-                <>
-                    <section className="container">
-                        <div className="cover bg--green flex__center">
-                            <h1 className={"cover__title"}>
-                                가장 최근에 추가된 영화 20편을 만나보세요!
-                            </h1>
-                        </div>
-                        <Movies movies={movies}/>
-                    </section>
-                </>
+                ? <h1 className="flex__center">Loading...</h1>
+                : <Movies movies={movies}/>
             }
-        </>
-
+        </section>
     )
 }
 
