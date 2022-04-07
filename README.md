@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# 리액트무비
+**React.js**를 기반의 영화 정보를 제공하는 반응형 웹 서비스(토이 프로젝트)입니다.
+노마드코더의 무료 리액트 강의 *ReactJS로 영화 웹 서비스 만들기*를 보다가 만들게 되었습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://nomadcoders.co/react-for-beginners/lobby
 
-## Available Scripts
+## 구현 기능
+1. 오늘의 영화 및 가장 최근에 추가된 영화 소개
+2. 영화 상세 소개(포스터, 줄거리, 장르, 캐스트, 스크린샷 등 기타 정보)
+3. 토렌트 다운로드
+4. 영화 검색(검색어, 장르, 최소 평점, 화질, 정렬기준, 차순 등)
+5. 3가지 반응형 (desktop, tablet pc, mobile)
 
-In the project directory, you can run:
+## 서비스 구경하기
+GitHub Pages에 배포되어 있습니다. 
 
-### `npm start`
+https://cityhopper.github.io/react_movie/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 느낀점
+1. 디자이너의 도움이 없으니 디자인에 쏟는 시간 소비가 상당하다.
+2. react-hook-form은 역시 편하다.
+3. react-router-dom V6가 이전 버전에 비해 꽤나 많이 바뀌었지만 기능이 좋다.
+4. Sass를 처음 써보았는데, 유지보수성은 좋으나 가독성은 좋지 않다.
