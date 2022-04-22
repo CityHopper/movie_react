@@ -20,9 +20,12 @@ footer {
 
     li {
 
-      a, a:link, a:visited {
+      button {
+        background: none;
+        border: none;
         color: var(--gray-200);
         text-decoration: none;
+        cursor: pointer;
       }
     }
   }
