@@ -6,6 +6,7 @@ import Latest from "../routes/Latest";
 import Search from "../routes/Search";
 import Detail from "../routes/Detail";
 import About from "../routes/About";
+import Footer from "./Footer";
 
 function Content() {
     return (
@@ -19,6 +20,7 @@ function Content() {
                 <Route path={`/movies/:id`} element={<Detail/>}/>
                 <Route path={`/about`} element={<About/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
     )
 }

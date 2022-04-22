@@ -237,7 +237,7 @@ header {
   }
 }
 
-@include media(mobile) {
+@include mobile {
   header {
     .navbar {
       flex-direction: column;
